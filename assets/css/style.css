@@ -100,6 +100,7 @@ a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #222831;
 }
 
 .bg-box {

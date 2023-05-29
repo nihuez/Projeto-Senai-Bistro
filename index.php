@@ -1,4 +1,4 @@
-<?php include("../../path.php"); ?>
+<?php include("path.php"); ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,12 +12,12 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="">
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="">
 
-  <title> Feane </title>
+  <title> Bistrô H's </title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
 
   <!--owl slider stylesheet -->
 
@@ -25,12 +25,12 @@
   <!-- nice select  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
   <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="assets/css/responsive.css" rel="stylesheet" />
 
 </head>
 
@@ -38,13 +38,13 @@
 
   <div class="hero_area">
     <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="">
+      <img src="assets/images/hero-bg.jpg" alt="">
     </div>
     <!-- header section strats -->
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="index.php">
             <span>
               Bistrô H's
             </span>
@@ -58,20 +58,20 @@
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
 
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="menu-inicial/index.php">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Cardápio</a>
+                <a class="nav-link" href="menu-inicial/menu.php">Cardápio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Sobre Nós</a>
+                <a class="nav-link" href="menu-inicial/about.php">Sobre Nós</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="book.html">Reservas </a>
+                <a class="nav-link" href="menu-inicial/book.php">Reservas </a>
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
+              <a href="login/login.php" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
                 </svg>
@@ -125,7 +125,7 @@
           <div class="col-md-6  ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/o1.jpg" alt="">
+                <img src="assets/images/o1.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -164,7 +164,7 @@
           <div class="col-md-6  ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/o2.jpg" alt="">
+                <img src="assets/images/o2.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -231,7 +231,7 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="images/f1.png" alt="">
+                  <img src="assets/images/f1.png" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
@@ -276,7 +276,7 @@
 
        </div>
       <div class="btn-box">
-        <a href="menu.html">
+        <a href="menu.php">
          Veja Mais
         </a>
       </div>
@@ -293,7 +293,7 @@
       <div class="row">
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/about-img.png" alt="">
+            <img src="assets/images/about-img.png" alt="">
           </div>
         </div>
         <div class="col-md-6">
@@ -306,7 +306,7 @@
             <p>
               Descubra uma experiência única no Bistrô H's - o destino perfeito para os amantes de massas e gastronomia italiana. Adentre um ambiente acolhedor e sofisticado, onde os aromas irresistíveis e os sabores autênticos da Itália se fundem para criar uma verdadeira festa para o paladar.
             </p>
-            <a href="about.html">
+            <a href="about.php">
               Leia mais
             </a>
           </div>
@@ -320,12 +320,12 @@
   <!-- end about section -->
 
   <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="assets/js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
   </script>
   <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
   <!-- owl slider -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
   </script>
@@ -334,7 +334,7 @@
   <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
   <!-- custom js -->
-  <script src="js/custom.js"></script>
+  <script src="assets/js/custom.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>

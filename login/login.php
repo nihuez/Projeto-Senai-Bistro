@@ -9,6 +9,7 @@
 	<link rel="stylesheet"  href="css/login.css" />
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <!-- Custom styles for this template -->
 </head>
 
 <?php include(ROOT_PATH . "/menu-inicial/header.php"); ?>
@@ -16,7 +17,7 @@
 <body>
 	<div class="section">	
 		<div class="container">
-			 <div class="row full-height justify-content-center">	
+			 <div class="row  justify-content-center">	
 				<div class="col-12 text-center align-self-center py-5">
 					<div class="section pb-5 pt-5 pt-sm-2 text-center">
 						<input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
