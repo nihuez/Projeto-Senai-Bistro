@@ -56,14 +56,6 @@
             <p>
                 Descubra uma experiência gastronômica excepcional: o sabor autêntico da Itália, meticulosamente preparado com paixão e servido com excelência no acolhedor Bistrô'Hs!
             </p>
-            <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-            </div>
           </div>
         </div>
         <div class="col-md-4 footer-col">
