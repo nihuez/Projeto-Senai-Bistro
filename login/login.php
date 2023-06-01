@@ -1,4 +1,5 @@
 <?php include("../path.php"); ?>
+<?php include("controllers/users.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,15 +31,17 @@
 									<div class="center-wrap">	
 										<div class="section text-center">	
 											<h4 class="mb-4 pb-3">Entre na sua Conta</h4>	
-											<div class="form-group">
-												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="none">
-												<i class="input-icon fa fa-at"></i>	
-											</div>	
-											<div class="form-group mt-2"> 
-												<input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="none">	
-												<i class="input-icon fa fa-lock"></i>	
-											</div>	
-											<a href="#" class="btn mt-4">Login</a>	
+											<form action="login.php" method="post">
+												<div class="form-group">
+													<input type="email" name="email" class="form-style" placeholder="Digite seu e-mail..." id="email"  value="<?php echo $email; ?>" autocomplete="none">
+													<i class="input-icon fa fa-at"></i>	
+												</div>	
+												<div class="form-group mt-2"> 
+													<input type="password" name="senha" class="form-style" placeholder="Digite sua senha..." id="senha"  value="<?php echo $senha; ?>" autocomplete="none">	
+													<i class="input-icon fa fa-lock"></i>	
+												</div>	
+												<button id="login-btn" type="submit" class="btn mt-4">Login</button>
+											</form>
 											<p class="mb-0 mt-4 text-center"></a></p>	
 											<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
 											<label for="reg-log"> Esqueceu a Senha?</label>	
@@ -50,7 +53,7 @@
 										<div class="section text-center">	
 											<h4 class="mb-4 pb-3">Recupere sua Senha</h4>	
 											<div class="form-group mt-2">
-												<input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="none">
+												<input type="email" name="logemail" class="form-style" placeholder="Informe seu e-mail..." id="logemail" autocomplete="none">
 												<i class="input-icon fa fa-at"></i>	
 											</div>	
 											<a href="" class="btn mt-4">Enviar E-mail</a>

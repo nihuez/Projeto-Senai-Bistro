@@ -56,14 +56,16 @@
 <body class="sub_page">
   <section class="book_section layout_padding">
     <div class="container">
-      <div class="heading_container">
-        <h2>
-          Reserve Sua Mesa Aqui
-        </h2>
+      <div class="row justify-content-center">
+        <div class="heading_container">
+          <h2>
+            Reserve Sua Mesa Aqui
+          </h2>
+        </div>
       </div>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-md-6">
-          <div class="form_container">
+          <div class="form_container center">
             <form action="reservas.php" method="POST">
               <div>
                 <input type="text" id="nome" name="nome_cliente" class="form-control" placeholder="Digite seu nome" required>
@@ -108,7 +110,7 @@
                 </select>
               </div>
               <div>
-                <input type="date" class="form-control" id="data" name="data_reserva" required>
+                <input type="date" class="form-control date-picker" id="data" name="data_reserva" required>
               </div>
               <br>
               <div>
@@ -116,17 +118,12 @@
               </div>
               <br>
               <div class="btn_box">
-                <button  type="submit" id="add-reservas" name="add-reservas">
+               <button type="submit" id="add-reservas" name="add-reservas">
                   Reservar
                 </button>
               </div>
             </form>
           </div>
-          <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
-          </div>
-        </div>
         </div>
       </div>
     </div>
@@ -153,11 +150,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
 <!-- custom js -->
 <script src="../assets/js/custom.js"></script>
-<!-- Google Map -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-</script>
-<!-- End Google Map -->
-
 </body>
 
 </html>

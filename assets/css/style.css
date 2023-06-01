@@ -193,6 +193,18 @@ a:focus {
   color: #ffbe33;
 }
 
+#add-reservas{
+  display: inline-block;
+    padding: 10px 55px;
+    background: #ffbe33;
+    color: #ffffff;
+    border-radius: 45px;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: none;
+    margin-bottom: 10px;
+}
+
 .user_option {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -672,6 +684,37 @@ a:focus {
 }
 
 .book_section .form_container .form-control {
+  width: 100%;
+  border: none;
+  height: 50px;
+  margin-bottom: 25px;
+  padding-left: 25px;
+  border: 1px solid #999;
+  outline: none;
+  color: #000000;
+  border-radius: 5px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#data{
+  width: 100%;
+  border: none;
+  height: 50px;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  border: 1px solid #999;
+  outline: none;
+  color: #000000;
+  border-radius: 5px;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+
+}
+
+#hora{
   width: 100%;
   border: none;
   height: 50px;

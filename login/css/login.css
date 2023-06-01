@@ -9,7 +9,7 @@ body {
     font-size: 15px;
     line-height: 1.7;
     color: #fff;
-    background-image: url(https://www.pizzaprime.com.br/wp-content/uploads/2019/10/massa-de-pizza.jpeg);
+    background-image: url(../../assets/images/hero-bg.jpg);
     background-size:cover;
     overflow-x: hidden
 }
