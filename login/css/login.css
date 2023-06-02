@@ -33,6 +33,20 @@ body {
     padding-left: 18%;
   }
   
+  .modal-content {
+    background-color: #2a2b38;
+    color: #fff;
+  }
+  .modal-header {
+    border-bottom: none;
+  }
+  .modal-body {
+    padding-bottom: 0;
+  }
+  .modal-footer {
+    border-top: none;
+  }
+  
   .custom_nav-container .navbar-nav .nav-item .nav-link {
     padding: 5px 20px;
     color: #ffffff;

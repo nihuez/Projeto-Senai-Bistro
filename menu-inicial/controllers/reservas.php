@@ -1,5 +1,6 @@
 <?php
 
+
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
 $table = 'reservas';
@@ -14,7 +15,7 @@ $data_reserva = '';
 $hr_reserva = '';
 
 
-$reserva = selectAll($table);
+$reserva = selectAll($table, []);
 
 if (isset($_POST['add-reservas'])) {
 
@@ -22,7 +23,7 @@ if (isset($_POST['add-reservas'])) {
         unset($_POST['add-reservas']);
         $reserva_id = create($table, $_POST);
         $_SESSION['type'] = 'success';
-        header('location: ' . BASE_URL . 'book.php');
+        header('location: ' . BASE_URL . 'menu-inicial/book.php');
         exit(); 
     } else {
         $_SESSION['message'] = 'Não foi possível criar a reserva';

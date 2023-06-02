@@ -66,7 +66,7 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="form_container center">
-            <form action="reservas.php" method="POST">
+            <form action="controllers/reservas.php" method="POST">
               <div>
                 <input type="text" id="nome" name="nome_cliente" class="form-control" placeholder="Digite seu nome" required>
               </div>

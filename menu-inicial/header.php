@@ -30,9 +30,6 @@
                 <a class="nav-link" href="../index.php">Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.php">Cardápio</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="about.php">Sobre Nós</a>
               </li>
               <li class="nav-item active">

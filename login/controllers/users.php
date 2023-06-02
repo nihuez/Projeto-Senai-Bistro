@@ -23,7 +23,7 @@ function loginUser($user)
     $_SESSION['type'] = 'success';
 
     if ($_SESSION['oid']) {
-        header('location: ' . BASE_URL . '/index.php'); 
+        header('location: ' . BASE_URL . 'login/login.php'); 
     } 
 
     exit();
@@ -33,28 +33,18 @@ if (isset($_POST['register-btn']) || isset($_POST['create-admin'])) {
     $errors = validateUser($_POST);
 
     if (count($errors) === 0) {
-        unset($_POST['register-btn'], $_POST['passwordConf'], $_POST['create-admin']);
-        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        unset($_POST['register-btn'], $_POST['senha'], $_POST['create-admin']);
+        $_POST['senha'] = password_hash($_POST['senha'], PASSWORD_DEFAULT);
         
-        if (isset($_POST['admin'])) {
-            $_POST['admin'] = 1;
-            $user_id = create($table, $_POST);
-            $_SESSION['message'] = 'Administrador criado';
-            $_SESSION['type'] = 'success';
-            header('location: ' . BASE_URL . '/admin/users/index.php'); 
-            exit();
-        } else {
-            $_POST['admin'] = 0;
-            $user_id = create($table, $_POST);
-            $user = selectOne($table, ['id' => $user_id]);
-            loginUser($user);
-        }
+        $user_id = create($table, $_POST);
+        $user = selectOne($table, ['oid' => $user_id]);
+        loginUser($user);
+      
     } else {
-        $username = $_POST['username'];
-        $admin = isset($_POST['admin']) ? 1 : 0;
+        $username = $_POST['nome'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
-        $passwordConf = $_POST['passwordConf'];
+        $password = $_POST['senha'];
+        $passwordConf = $_POST['senhaConf'];
     }
 }
 
@@ -95,16 +85,17 @@ if (isset($_POST['login-btn'])) {
     $errors = validateLogin($_POST);
 
     if (count($errors) === 0) {
-        $user = selectOne($table, ['nome' => $_POST['nome']]);
 
-        if ($user && password_verify($_POST['senha'], $user['senha'])) {
+        $user = selectOne($table, ['email' => $_POST['email']]);
+
+        if ($user && $_POST['senha'] === $user['senha']) {
             loginUser($user);
         } else {
            array_push($errors, 'Usuário ou Senha Incorretos!');
         }
     }
 
-    $username = $_POST['nome'];
+    $email = $_POST['email'];
     $senha = $_POST['senha'];
 }
 
@@ -114,4 +105,55 @@ if (isset($_GET['delete_id'])) {
     $_SESSION['type'] = 'success';
     header('location: ' . BASE_URL . '/index.php'); 
     exit();
+}
+
+function validateUser($user)
+{
+    $errors = array();
+
+    if (empty($user['username'])) {
+        array_push($errors, 'Username é um campo obrigatório');
+    }
+
+    if (empty($user['email'])) {
+        array_push($errors, 'Email é um campo obrigatório');
+    }
+
+    if (empty($user['password'])) {
+        array_push($errors, 'Senha é um campo obrigatório');
+    }
+
+    if ($user['passwordConf'] !== $user['password']) {
+        array_push($errors, 'A senha não confere');
+    }
+
+
+    $existingUser = selectOne('users', ['email' => $user['email']]);
+    if ($existingUser) {
+        if (isset($user['update-user']) && $existingUser['id'] != $user['id']) {
+            array_push($errors, 'Email já cadastrado');
+        }
+
+        if (isset($user['create-admin'])) {
+            array_push($errors, 'Email já cadastrado');
+        }
+    }
+
+    return $errors;
+}
+
+
+function validateLogin($user)
+{
+    $errors = array();
+
+    if (empty($user['email'])) {
+        array_push($errors, 'Email é um campo obrigatório');
+    }
+
+    if (empty($user['senha'])) {
+        array_push($errors, 'Senha é um campo obrigatório');
+    }
+
+    return $errors;
 }

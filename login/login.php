@@ -10,6 +10,10 @@
 	<link rel="stylesheet"  href="css/login.css" />
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
 	<link rel="shortcut icon" href="../assets/images/favicon.png" type="">
 
   <title> Bistrô H's </title>
@@ -18,7 +22,39 @@
 
 <?php include(ROOT_PATH . "/menu-inicial/header.php"); ?>
 
-<body>
+<body>											
+<!-- Modal de Login -->
+	<?php if(count($errors) > 0): ?>
+		<div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Erros</h5>
+                </div>
+                <div class="modal-body">
+                    <?php foreach ($errors as $error): ?>
+                        <li><?php echo $error; ?></li>
+                    <?php endforeach; ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="fecharModal()">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+		function fecharModal() {
+			$('#errorModal').modal("hide");
+        }
+
+        $(document).ready(function() {
+            $('#errorModal').modal('show');
+        });
+
+    </script>
+	<?php endif; ?>
+
 	<div class="section">	
 		<div class="container">
 			 <div class="row  justify-content-center">	
@@ -40,7 +76,7 @@
 													<input type="password" name="senha" class="form-style" placeholder="Digite sua senha..." id="senha"  value="<?php echo $senha; ?>" autocomplete="none">	
 													<i class="input-icon fa fa-lock"></i>	
 												</div>	
-												<button id="login-btn" type="submit" class="btn mt-4">Login</button>
+												<button id="login-btn" name="login-btn" type="submit" class="btn mt-4" data-toggle="modal" data-target="#loginModal">Login</button>
 											</form>
 											<p class="mb-0 mt-4 text-center"></a></p>	
 											<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>

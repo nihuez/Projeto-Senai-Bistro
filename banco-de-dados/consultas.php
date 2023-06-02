@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+if (isset($_SESSION)){
+   session_start(); 
+}
+
 require('conect.php');
 
 
@@ -24,7 +27,7 @@ function executeQuery($sql, $data)
 }
 
 
-function selectAll($table, $conditions = [])
+function selectAll($table, $conditions)
 {
     global $conn;
     $sql = "SELECT * FROM $table";

@@ -1,4 +1,6 @@
-<?php include("path.php"); ?>
+<?php include("path.php");
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -59,9 +61,6 @@
               <li class="nav-item active">
 
                 <a class="nav-link" href="menu-inicial/index.php">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu-inicial/menu.php">Cardápio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu-inicial/about.php">Sobre Nós</a>
@@ -166,55 +165,7 @@
 
   <!-- food section -->
 
-  <section class="food_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Nosso Cardápio
-        </h2>
-      </div>
-
-      <ul class="filters_menu">
-        <li class="active" data-filter="*">Todos</li>
-        <li data-filter=".burger">Lasanhas</li>
-        <li data-filter=".pizza">Pizzas</li>
-        <li data-filter=".pasta">Massas</li>
-        <li data-filter=".fries">Drinks</li>
-      </ul>
-
-      <div class="filters-content">
-        <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all pizza">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="assets/images/f1.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Delicious Pizza
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                      $20
-                    </h6>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-       </div>
-      <div class="btn-box">
-        <a href="menu-inicial/menu.php">
-         Veja Mais
-        </a>
-      </div>
-    </div>
-  </section>
+  <?php include(ROOT_PATH . "/menu-inicial/menu.php"); ?>
 
   <!-- end food section -->
 
