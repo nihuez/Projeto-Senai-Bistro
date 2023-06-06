@@ -32,15 +32,17 @@
                         <a href="book.php" style="color: #ffff">Adicionar</a>
                       </button>
                       <br>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">NOME</th>
-                        <th scope="col">CONTATO</th>
-                        <th scope="col">ACOMPANHANTES</th>
-                        <th scope="col">MESA</th>
-                        <th scope="col">DATA</th>
-                        <th scope="col">HORA</th>
-                      </tr>
+                      <div class="m-t-05">
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">NOME</th>
+                          <th scope="col">CONTATO</th>
+                          <th scope="col">ACOMPANHANTES</th>
+                          <th scope="col">MESA</th>
+                          <th scope="col">DATA</th>
+                          <th scope="col">HORA</th>
+                        </tr>
+                      </div>
                     </thead>
                     <tbody class="text">
                       <tr>

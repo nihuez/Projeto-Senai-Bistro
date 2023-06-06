@@ -1,65 +1,77 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
 
-
-nav {
-    margin:0;
-    background-color: #ffffffef;
-    color: #000000;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 15px;
+body {
+  margin: 0;
 }
 
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    align-items: center;  
-    font-family: "Open Sans", sans-serif;
-    font-size: 110%;
-  }
 
-  nav li {
-    margin: 0 20px;
-    transition: all 0,3s;
-  }
-  
-  nav a {
-    color: #000000;
-    text-decoration:none;
-    transition: all 0.3s;
-  }
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #ffffffef;
+  color: #000000;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.3s;
+}
 
-  nav a:hover{
-  color: #f7b525;
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 8px 16px;
   text-decoration: none;
+  color: #000000;
+}
+
+.sidebar a:hover {
+  color: #f7b525;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.dropdown-content {
+  display: none;
+  background-color: #ffffffef;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media (max-width: 737px) {
+  .sidebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    height: 7%;
   }
 
-  main {
-    font-family: "Open Sans", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 150px;
-  }
-  
-  img {
-    position:relative;
-    left: 1%;
-    justify-content: center;
-    max-width: 5%;
-    min-width: 5%;
-    margin: 0 5px;
-    display: flex;
-    left: 5%;
-    flex-direction:row ;
+  .main-content {
+    margin-top: 70px;
   }
 
-  .container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+}
