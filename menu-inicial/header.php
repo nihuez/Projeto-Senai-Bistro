@@ -37,7 +37,7 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="../login/login.php" class="user_link">
+              <a href="login.php" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
                 </svg>

@@ -14,7 +14,6 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
 
 
 
-<script src="../assets/js/cardapio.js"></script>
   <!-- food section -->
 
   <section class="food_section layout_padding">
@@ -39,7 +38,7 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="assets/images/f1.png" alt="">
+                <img src="<?php echo $massa['img']; ?>" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
@@ -65,7 +64,7 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="assets/images/f1.png" alt="">
+                  <img src="<?php echo $massa['img']; ?>" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
@@ -93,7 +92,7 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="assets/images/f1.png" alt="">
+                <img src="<?php echo $massa['img']; ?>" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
@@ -120,6 +119,33 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
 
 
 
+<script>
+  
+// Função para filtrar os itens com base no valor do filtro
+function filterItems(filterValue) {
+
+var items = document.querySelectorAll('.all');
+
+items.forEach(function(item) {
+    var classes = item.classList;
+    
+    // Se o valor do filtro for "*", mostre todos os itens de conteúdo
+    if (filterValue === '*') {
+    item.style.display = 'block';
+    } else {
+    // Caso contrário, verifique se o item tem a classe correspondente ao valor do filtro
+    if (classes.contains(filterValue)) {
+        item.style.display = 'block';
+    } else {
+        item.style.display = 'none';
+    }
+    }
+});
+
+}
+
+
+</script>
 <!-- jQery -->
 <script src="../assets/js/jquery-3.4.1.min.js"></script>
 <!-- popper js -->

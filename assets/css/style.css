@@ -763,6 +763,58 @@ a:focus {
   border: none;
 }
 
+
+#modal-btn{
+  border-radius: 4px;
+  height: 48px;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 200ms linear;
+  padding: 0 30px;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  text-align: center;
+  border: none;
+  background-color: #E69C00;
+  color: #fff;
+  box-shadow: 0 8px 24px 0 rgba(11, 59, 43, 0.2);
+}
+
+#modal-btn:active,
+#modal-btn:focus {
+    background-color: #fff;
+    color: #E69C00;
+    box-shadow: 0 8px 24px 0 rgba(255, 255, 255, .2)
+}
+
+#modal-btn:hover {
+    background-color: #fff;
+    color: #E69C00;
+    box-shadow: 0 8px 24px 0 rgba(255, 255, 255, .2)
+}
+
+.modal-content {
+  background-color: #2a2b38;
+  color: #fff;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-body {
+  padding-bottom: 0;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
 .book_section .form_container button:hover {
   background-color: #e69c00;
 }

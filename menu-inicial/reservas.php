@@ -1,11 +1,13 @@
 <?php
 
 
+include("../path.php");
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
 $table = 'reservas';
 
 $errors = array();
+$mensagens = array();
 $oid = '';
 $nome_cliente = '';
 $contato_cliente = '';
@@ -23,10 +25,13 @@ if (isset($_POST['add-reservas'])) {
         unset($_POST['add-reservas']);
         $reserva_id = create($table, $_POST);
         $_SESSION['type'] = 'success';
-        header('location: ' . BASE_URL . 'menu-inicial/book.php');
-        exit(); 
+    
+        array_push($mensagens, 'Reserva realizada com sucesso!');
+
     } else {
         $_SESSION['message'] = 'Não foi possível criar a reserva';
+        array_push($mensagens, 'Não foi possível criar a reserva para essa data!');
+       
         $_SESSION['type'] = 'error';
     }
 }

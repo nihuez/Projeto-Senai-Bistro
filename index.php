@@ -60,7 +60,7 @@
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
 
-                <a class="nav-link" href="menu-inicial/index.php">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="menu-inicial/about.php">Sobre Nós</a>
@@ -70,7 +70,7 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="login/login.php" class="user_link">
+              <a href="menu-inicial/login.php" class="user_link">
                 <i class="fa fa-user" aria-hidden="true"></i>
               </a>
                 </svg>

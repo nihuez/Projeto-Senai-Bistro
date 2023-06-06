@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+
+nav {
+    margin:0;
+    background-color: #ffffffef;
+    color: #000000;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+}
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;  
+    font-family: "Open Sans", sans-serif;
+    font-size: 110%;
+  }
+
+  nav li {
+    margin: 0 20px;
+    transition: all 0,3s;
+  }
+  
+  nav a {
+    color: #000000;
+    text-decoration:none;
+    transition: all 0.3s;
+  }
+
+  nav a:hover{
+  color: #f7b525;
+  text-decoration: none;
+  }
+
+  main {
+    font-family: "Open Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 150px;
+  }
+  
+  img {
+    position:relative;
+    left: 1%;
+    justify-content: center;
+    max-width: 5%;
+    min-width: 5%;
+    margin: 0 5px;
+    display: flex;
+    left: 5%;
+    flex-direction:row ;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  

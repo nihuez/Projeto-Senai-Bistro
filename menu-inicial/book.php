@@ -12,8 +12,7 @@
  
 ?>
 
-<?php include("../path.php")?>
-<?php include("controllers/reservas.php");?>
+<?php include("reservas.php");?>
 
 <!DOCTYPE html>
 <html>
@@ -54,6 +53,38 @@
 <?php include(ROOT_PATH . "/menu-inicial/header.php"); ?>
 
 <body class="sub_page">
+  
+  <?php if(count($mensagens) > 0): ?>
+      <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="loginModalLabel"></h5>
+                  </div>
+                  <div class="modal-body">
+                      <?php foreach ($mensagens as $mensagem): ?>
+                          <h5><?php echo $mensagem; ?></h5>
+                      <?php endforeach; 
+                      ?>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" id="modal-btn" data-dismiss="modal" onclick="fecharModal()">Fechar</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <script>
+      function fecharModal() {
+        $('#errorModal').modal("hide");
+          }
+
+          $(document).ready(function() {
+              $('#errorModal').modal('show');
+          });
+      </script>
+
+  <?php endif; ?>
+
   <section class="book_section layout_padding">
     <div class="container">
       <div class="row justify-content-center">
@@ -66,7 +97,7 @@
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="form_container center">
-            <form action="controllers/reservas.php" method="POST">
+            <form action="book.php" method="post">
               <div>
                 <input type="text" id="nome" name="nome_cliente" class="form-control" placeholder="Digite seu nome" required>
               </div>
@@ -118,7 +149,7 @@
               </div>
               <br>
               <div class="btn_box">
-               <button type="submit" id="add-reservas" name="add-reservas">
+               <button type="submit" id="add-reservas" data-toggle="modal" data-target="#loginModal" name="add-reservas">
                   Reservar
                 </button>
               </div>

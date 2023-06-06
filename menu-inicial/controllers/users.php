@@ -4,8 +4,6 @@ include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
 $table = 'usuarios';
 
-$admin_users = selectAll($table);
-
 $errors = array();
 $oid = '';
 $nome = '';
@@ -23,7 +21,7 @@ function loginUser($user)
     $_SESSION['type'] = 'success';
 
     if ($_SESSION['oid']) {
-        header('location: ' . BASE_URL . 'login/login.php'); 
+        header('location: ../admin/index.php'); 
     } 
 
     exit();
