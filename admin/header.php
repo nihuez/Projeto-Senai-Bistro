@@ -12,13 +12,13 @@
     <div class="sidebar">
       <ul>
         <li><a href="index.php"><h3 class="title" style="font-family: 'Dancing Script', cursive; font-size:35px">Bistro H's</h3></a></li>
-        <li><a href="#">RESERVAS</a></li>
+        <li><a href="../tb_reservas.php">RESERVAS</a></li>
         <li class="dropdown">
           <a href="#" class="dropbtn">CADASTROS</a>
           <div class="dropdown-content">
             <a href="usuario/user.php">Usuários</a>
-            <a href="#">Cardápio</a>
-            <a href="#">Promoções</a>
+            <a href="cardapio/cardapio.php">Cardápio</a>
+            <a href="">Promoções</a>
           </div>
         </li>
         <li><a href="#">SAIR</a></li>

@@ -21,7 +21,7 @@ function loginUser($user)
     $_SESSION['type'] = 'success';
 
     if ($_SESSION['oid']) {
-        header('location: ../admin/index.php'); 
+        header('location: ../admin/tb_reservas.php'); 
     } 
 
     exit();
