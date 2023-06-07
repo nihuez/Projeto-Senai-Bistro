@@ -10,14 +10,13 @@
 <body>
   <nav>
     <div class="sidebar">
-    <button id="sidebar-toggle"></button>
       <ul>
-        <li><a href="index.html"><h3 class="title" style="font-family: 'Dancing Script', cursive; font-size:35px">Bistro H's</h3></a></li>
+        <li><a href="index.php"><h3 class="title" style="font-family: 'Dancing Script', cursive; font-size:35px">Bistro H's</h3></a></li>
         <li><a href="#">RESERVAS</a></li>
         <li class="dropdown">
           <a href="#" class="dropbtn">CADASTROS</a>
           <div class="dropdown-content">
-            <a href="#">Usuários</a>
+            <a href="usuario/user.php">Usuários</a>
             <a href="#">Cardápio</a>
             <a href="#">Promoções</a>
           </div>
