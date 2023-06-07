@@ -1,6 +1,5 @@
 <?php
 
-
 include("../path.php");
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
@@ -52,3 +51,15 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($conn, "INSERT INTO reservas('nome', 'contato', 'acompanhantes', 'mesa', 'data', 'hora') 
     VALUES ('$nome_cliente', '$contato_cliente', '$acompanhantes', '$mesa', '$data_reserva', '$hr_reserva',)");
     }
+
+    if (isset($_GET['del_id'])) {
+  
+        $id = $_GET['del_id'];
+        $count = delete($table, $id);
+        $_SESSION['message'] = 'Reserva cancelada com sucesso';
+        $_SESSION['type'] = 'success';
+        header('location: ' . BASE_URL . '/admin/tb_reservas.php');
+        exit();
+    }
+    
+    

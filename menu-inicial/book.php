@@ -1,17 +1,3 @@
-<?php
-
-  if(isset($_POST['submit']))
-  {
-    print_r($_POST['nome']);
-    print_r($_POST['contato']);
-    print_r($_POST['acompanhantes']);
-    print_r($_POST['mesa']);
-    print_r($_POST['data']);
-    print_r($_POST['hora']);
-  }
- 
-?>
-
 <?php include("reservas.php");?>
 
 <!DOCTYPE html>
@@ -108,16 +94,16 @@
                   <option value="" disabled selected>
                     Acompanhantes?
                   </option>
-                  <option value="">
+                  <option value="2">
                     2
                   </option>
-                  <option value="">
+                  <option value="3">
                     3
                   </option>
-                  <option value="">
+                  <option value="4">
                     4
                   </option>
-                  <option value="">
+                  <option value="5">
                     5
                   </option>
                 </select>
@@ -126,16 +112,16 @@
                   <option value="" disabled selected>
                     Escolha sua mesa:
                   </option>
-                  <option value="">
+                  <option value="2">
                     2
                   </option>
-                  <option value="">
+                  <option value="3">
                     3
                   </option>
-                  <option value="">
+                  <option value="4">
                     4
                   </option>
-                  <option value="">
+                  <option value="5">
                     5
                   </option>
                 </select>

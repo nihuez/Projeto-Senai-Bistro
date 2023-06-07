@@ -53,10 +53,13 @@
                                     <td><?php echo $reserva['mesa']; ?></td>
                                     <td><?php echo $reserva['data_reserva']; ?></td>
                                     <td><?php echo $reserva['hr_reserva']; ?></td>
-                                    <td><button type="button" class="btn btn-warning btn-sm px-3" style="margin:2px">
-                                    <i class="fa fa-edit"></i></td>
+
+                                    <td><button type="button" class="btn btn-warning btn-sm px-3">
+                                    <a href="../menu-inicial/reservas.php?del_id=<?php echo $reserva['id'];?>"><i class="fa fa-edit"></i></td>
+
                                     <td><button type="button" class="btn btn-dark btn-sm px-3">
                                     <i class="fa fa-trash"></i></td>
+
                                     </button>
                                     </button>
                                 </tr> 
