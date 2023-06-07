@@ -49,7 +49,7 @@ body{
 table td,
 table th {
   text-overflow:inherit;
-  white-space:normal;
+  white-space:initial;
   overflow:visible;
   text-align: center;
 }
