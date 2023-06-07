@@ -30,7 +30,10 @@ body{
   border: none;
   background-color: #222831;
   color: #fff;
-  box-shadow: 0 8px 24px 0 rgba(11, 59, 43, 0.2)
+  box-shadow: 0 8px 24px 0 rgba(11, 59, 43, 0.2);
+  position:relative;
+  left:80%;
+  margin-bottom:20px;
 }
 
 #btn-add:active,
@@ -85,6 +88,40 @@ table th {
   background-clip: padding-box;
   box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
 }
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-group label {
+  font-weight:light;
+}
+
+.form-group input{
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  width: 100%;
+  border: 1px solid #E69C00;
+  box-shadow: 30px 0 0  #E69C00;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.form-group input:focus {
+  border: #E69C00;
+}
+
+.center-form {
+  margin-top: 50px;
+  padding-left: 200px;
+  padding-right: 200px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
 
 
 @media (max-width: 1170px) {
