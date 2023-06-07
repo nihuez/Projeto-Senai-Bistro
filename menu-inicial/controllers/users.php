@@ -1,5 +1,5 @@
 <?php
-
+include('../../path.php');
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
 $table = 'usuarios';
@@ -8,6 +8,7 @@ $errors = array();
 $oid = '';
 $nome = '';
 $senha = '';
+$senhaConf = '';
 $email = '';
 $cpf = '';
 $telefone = '';
@@ -21,28 +22,37 @@ function loginUser($user)
     $_SESSION['type'] = 'success';
 
     if ($_SESSION['oid']) {
-        header('location: ../admin/tb_reservas.php'); 
+        header('location:' +  BASE_URL . "/admin/tb_reservas" ); 
     } 
 
     exit();
 }
 
-if (isset($_POST['register-btn']) || isset($_POST['create-admin'])) {
+if ( isset($_POST['create-admin'])) {
+
     $errors = validateUser($_POST);
 
     if (count($errors) === 0) {
-        unset($_POST['register-btn'], $_POST['senha'], $_POST['create-admin']);
+
         $_POST['senha'] = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+
+        unset($_POST['senhaConf'], $_POST['senha'],  $_POST['create-admin']);
         
         $user_id = create($table, $_POST);
+
         $user = selectOne($table, ['oid' => $user_id]);
-        loginUser($user);
+
+        if(isset($user)){
+         var_dump($user);
+         header('location:' +  BASE_URL . "/admin/usuario/user.php" ); 
+        }
+    
       
     } else {
         $username = $_POST['nome'];
         $email = $_POST['email'];
-        $password = $_POST['senha'];
-        $passwordConf = $_POST['senhaConf'];
+        $senha = $_POST['senha'];
+        $senhaConf = $_POST['senhaConf'];
     }
 }
 
@@ -52,7 +62,7 @@ if (isset($_POST['update-user'])) {
 
     if (count($errors) === 0) {
         $oid = $_POST['oid'];
-        unset($_POST['passwordConf'], $_POST['update-user'], $_POST['oid']);
+        unset($_POST['senhaConf'], $_POST['update-user'], $_POST['oid']);
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $count = update($table, $oid, $_POST);
         $_SESSION['message'] = 'Administrador criado';
@@ -117,24 +127,18 @@ function validateUser($user)
         array_push($errors, 'Email é um campo obrigatório');
     }
 
-    if (empty($user['password'])) {
+    if (empty($user['senha'])) {
         array_push($errors, 'Senha é um campo obrigatório');
     }
 
-    if ($user['passwordConf'] !== $user['password']) {
+    if ($user['senhaConf'] !== $user['senha']) {
         array_push($errors, 'A senha não confere');
     }
 
+    $existingUser = selectOne('usuarios', ['email' => $user['email']]);
 
-    $existingUser = selectOne('users', ['email' => $user['email']]);
     if ($existingUser) {
-        if (isset($user['update-user']) && $existingUser['id'] != $user['id']) {
-            array_push($errors, 'Email já cadastrado');
-        }
-
-        if (isset($user['create-admin'])) {
-            array_push($errors, 'Email já cadastrado');
-        }
+     array_push($errors, 'Email já cadastrado');
     }
 
     return $errors;

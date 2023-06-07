@@ -1,7 +1,4 @@
 <?php
-
-
-include("../path.php");
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
 $table = 'reservas';

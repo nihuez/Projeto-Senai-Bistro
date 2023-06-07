@@ -13,9 +13,8 @@ $itens = selectAll('itens', []);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="../style.css"> 
-    <link rel="stylesheet" type="text/css" href="../estilo.css">
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" type="text/css" href="../css/estilo.css">
     <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
     <title>Document</title>
 
@@ -34,7 +33,7 @@ $itens = selectAll('itens', []);
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-borderless mb-3"> 
-                  <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cadastro de Usuários</h1></div>
+                  <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cardápio</h1></div>
                   <thead>
                       <button class="btn mt-4" id="btn-add" name="btn-add">
                         <a href="create.php" style="color: #ffff;">Adicionar</a>
@@ -42,9 +41,9 @@ $itens = selectAll('itens', []);
                       <br>
                       <div>
                         <tr>
-                          <th scope="col">NOME</th>
+                          <th scope="col">ITEM</th>
                           <th scope="col">VALOR</th>
-                          <th scope="col">DESC.</th>
+                          <th scope="col">DESCRIÇÃO</th>
                           <th scope="col">CATEGORIA</th>
                           <th scope="col">EDITAR</th>
                           <th scope="col">DELETAR</th>
@@ -85,8 +84,8 @@ $itens = selectAll('itens', []);
 
 <div class="modal fade" id="descricaoModal" tabindex="-1" role="dialog" aria-labelledby="descricaoModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content" style="overflow-y:auto;">
+            <div class="modal-header" style="overflow-y:auto;">
                 <h5 class="modal-title" id="descricaoModalLabel">Descrição completa</h5>
             </div>
             <div class="modal-body">
