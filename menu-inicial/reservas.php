@@ -75,7 +75,7 @@ if (isset($_GET['id'])) {
         $count = delete($table, $id);
         $_SESSION['message'] = 'Reserva cancelada com sucesso';
         $_SESSION['type'] = 'success';
-        header('location: ' . BASE_URL . '../admin/reservas/tb_reservas.php');
+        header('location: ' . BASE_URL . '/admin/tb_reservas.php');
         exit();
     }
     
