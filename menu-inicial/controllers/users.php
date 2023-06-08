@@ -12,7 +12,6 @@ $email = '';
 $cpf = '';
 $telefone = '';
 
-
 function loginUser($user)
 {
     $_SESSION['oid'] = $user['oid'];
@@ -21,7 +20,7 @@ function loginUser($user)
     $_SESSION['type'] = 'success';
 
     if ($_SESSION['oid']) {
-        header('location: ../admin/tb_reservas.php'); 
+        header('location: ../admin/reservas/tb_reservas.php'); 
     } 
 
     exit();
