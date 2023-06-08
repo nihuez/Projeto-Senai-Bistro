@@ -16,7 +16,6 @@
 
   </head>
 <body>
-
 <section class="intro">
   <div class="bg-image h-100">
     <div class="mask d-flex align-items-center h-100">
