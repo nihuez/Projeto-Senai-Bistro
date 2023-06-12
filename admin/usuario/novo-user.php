@@ -1,26 +1,19 @@
-
 <?php include("../../path.php"); ?>
-<?php include("../../menu-inicial/controllers/users.php"); 
-
-$users = selectAll('usuarios', []);
-
-?>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="../css/style.css"> 
-    <link rel="stylesheet" type="text/css" href="../css/estilo.css">
     <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
     <title>Document</title>
 
     <?php include("../header.php"); ?>
 
   </head>
+
 <body>
 
 <section class="intro">
@@ -34,40 +27,36 @@ $users = selectAll('usuarios', []);
                 <div class="table-responsive">
                   <table class="table table-borderless mb-3"> 
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cadastro de Usuários</h1></div>
-                  <thead>
-                      <button class="btn mt-4" id="btn-add" name="btn-add">
-                        <a href="novo-user.php" style="color: #ffff;">Adicionar</a>
-                      </button>
-                      <br>
-                      <div>
-                        <tr>
-                          <th scope="col">NOME</th>
-                          <th scope="col">EMAIL</th>
-                          <th scope="col">CPF</th>
-                          <th scope="col">TELEFONE</th>
-                          <th scope="col">EDITAR</th>
-                          <th scope="col">DELETAR</th>
-        
-                        </tr>
-                      </div>
-                    </thead>
-                    <tbody class="text">
-                        <?php foreach ($users as $user): ?>
-                                <tr>
-                                    <td><?php echo $user['nome']; ?></td>
-                                    <td><?php echo $user['email']; ?></td>
-                                    <td><?php echo $user['cpf']; ?></td>
-                                    <td><?php echo $user['telefone']; ?></td>
-                                    <td><button type="button" class="btn btn-warning btn-sm px-3" style="margin:2px">
-                                    <i class="fa fa-edit"></i></td>
-                                    <td><button type="button" class="btn btn-dark btn-sm px-3">
-                                    <i class="fa fa-trash"></i></td>
-                                    </button>
-                                    </button>
-                                </tr> 
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                   <!-- Formulário -->
+                   <div class="center-form">
+                   <form action="<?php echo BASE_URL . "/menu-inicial/controllers/users.php" ?>" method="POST">
+                    <div class="form-group">
+                      <label for="nome">Nome:</label>
+                      <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Email:</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Digite o email">
+                    </div>
+                    <div class="form-group">
+                      <label for="cpf">CPF:</label>
+                      <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite o CPF">
+                    </div>
+                    <div class="form-group">
+                      <label for="telefone">Telefone:</label>
+                      <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite o telefone">
+                    </div>
+                    <div class="form-group">
+                      <label for="senha">Senha:</label>
+                      <input type="text" class="form-control" id="senha" name="senha" placeholder="Digite a Senha...">
+                    </div>
+                    <div class="form-group">
+                      <label for="senha">Confirmação de Senha:</label>
+                      <input type="text" class="form-control" id="senha" name="senha" placeholder="Confirme a Senha...">
+                    </div>
+                    <button type="submit" class="btn mt-4" id="btn-add" name="create-admin"> <a href="book.php" style="color: #ffff;">Cadastrar</a> </button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
