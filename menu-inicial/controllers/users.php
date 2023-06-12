@@ -13,7 +13,6 @@ $email = '';
 $cpf = '';
 $telefone = '';
 
-
 function loginUser($user)
 {
     $_SESSION['oid'] = $user['oid'];
