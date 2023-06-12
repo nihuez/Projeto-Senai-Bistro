@@ -1,5 +1,5 @@
 <?php
-include('../../path.php');
+
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
 $table = 'usuarios';
@@ -22,7 +22,7 @@ function loginUser($user)
     $_SESSION['type'] = 'success';
 
     if ($_SESSION['oid']) {
-        header('location:' +  BASE_URL . "/admin/tb_reservas" ); 
+        header('location:' .  BASE_URL . "/admin/index.php" ); 
     } 
 
     exit();

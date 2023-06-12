@@ -51,7 +51,7 @@
                       <input type="text" class="form-control" id="senha" name="senha" placeholder="Digite a Senha...">
                     </div>
                     <div class="form-group">
-                      <label for="senha">Telefone:</label>
+                      <label for="senha">Confirmação de Senha:</label>
                       <input type="text" class="form-control" id="senha" name="senha" placeholder="Confirme a Senha...">
                     </div>
                     <button type="submit" class="btn mt-4" id="btn-add" name="create-admin"> <a href="book.php" style="color: #ffff;">Cadastrar</a> </button>
