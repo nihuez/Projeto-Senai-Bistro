@@ -1,6 +1,5 @@
 <?php include("../path.php"); ?>
-<?php include("../menu-inicial/reservas.php"); ?> 
-
+<?php include(ROOT_PATH . "/menu-inicial/reservas.php"); ?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +15,6 @@
 
   </head>
 <body>
-
 <section class="intro">
   <div class="bg-image h-100">
     <div class="mask d-flex align-items-center h-100">
@@ -36,15 +34,14 @@
                       <tr>
                         <th scope="col">NOME</th>
                         <th scope="col">CONTATO</th>
-                        <th scope="col">ACOMPANHANTES</th>
-                        <th scope="col">MESA</th>
+                        <th scope="col">ACOMPANHANTES</th>                      
                         <th scope="col">DATA</th>
                         <th scope="col">HORA</th>
                         <th scope="col">EDITAR</th>
                         <th scope="col">CANCELAR</th>
                       </tr>
                     </thead>
-                    <tbody>
+                        <tbody>
                             <?php foreach ($reserva as $reserva): ?>
                                <tr>
                                     <td><?php echo $reserva['nome_cliente']; ?></td>
@@ -53,18 +50,21 @@
                                     <td><?php echo $reserva['mesa']; ?></td>
                                     <td><?php echo $reserva['data_reserva']; ?></td>
                                     <td><?php echo $reserva['hr_reserva']; ?></td>
-                                    <td><button type="button" class="btn btn-warning btn-sm px-3" style="margin:2px">
-                                    <i class="fa fa-edit"></i></td>
+
+                                    <td><button type="button" class="btn btn-warning btn-sm px-3">
+                                    <a href="edit.php?id=<?php echo $reservas['id']; ?>" class="edit"><i class="fa fa-edit"></i></td>
+
                                     <td><button type="button" class="btn btn-dark btn-sm px-3">
-                                    <i class="fa fa-trash"></i></td>
+                                    <a href="../menu-inicial/reservas.php?del_id=<?php echo $reserva['id'];?>"><i class="fa fa-trash"></i></td>
+
                                     </button>
                                     </button>
                                 </tr> 
                             <?php endforeach; ?>
                         </tbody>
-                  </table>
+                    </table>
+                  </div>
                 </div>
-            </div>
                 </div>
               </div>
             </div>

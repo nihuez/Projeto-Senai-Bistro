@@ -1,4 +1,7 @@
 <?php
+
+
+include("../path.php");
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
 $table = 'reservas';
@@ -12,7 +15,6 @@ $acompanhantes = '';
 $mesa = '';
 $data_reserva = '';
 $hr_reserva = '';
-
 
 $reserva = selectAll($table, []);
 
@@ -45,7 +47,36 @@ if (isset($_GET['id'])) {
     $data_reserva = $_POST['data'];
     $hr_reserva = $_POST['hora'];
 
-
     $result = mysqli_query($conn, "INSERT INTO reservas('nome', 'contato', 'acompanhantes', 'mesa', 'data', 'hora') 
     VALUES ('$nome_cliente', '$contato_cliente', '$acompanhantes', '$mesa', '$data_reserva', '$hr_reserva',)");
     }
+
+    if (isset($_POST['update-turma'])) {
+    
+        $errors = validateTopic($_POST);
+    
+        if (count($errors) === 0) { 
+            $id = $_POST['id']; 
+            unset($_POST['update-turma'], $_POST['id']);
+            $topic_id = update($table, $id, $_POST);
+            $_SESSION['message'] = 'Turma atualizada com sucesso';
+            $_SESSION['type'] = 'success';
+            header('location: ' . BASE_URL . 'book.php');
+            exit();
+        } else {
+            $_SESSION['message'] = 'Não foi possível criar a turma';
+            $_SESSION['type'] = 'error';
+        }
+    
+    }
+
+    if (isset($_GET['del_id'])) {
+  
+        $id = $_GET['del_id'];
+        $count = delete($table, $id);
+        $_SESSION['message'] = 'Reserva cancelada com sucesso';
+        $_SESSION['type'] = 'success';
+        header('location: ' . BASE_URL . '/admin/tb_reservas.php');
+        exit();
+    }
+    
