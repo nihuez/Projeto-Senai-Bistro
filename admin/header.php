@@ -21,7 +21,7 @@
             <a href="">Promoções</a>
           </div>
         </li>
-        <li><a href="#">SAIR</a></li>
+        <li><a href="<?php echo BASE_URL . '/logout.php' ?>">SAIR</a></li>
       </ul>
     </div>
   </nav>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php include("../../path.php"); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <link rel="stylesheet" href="../css/style.css"> 
-    <link rel="stylesheet" type="text/css" href="../css/estilo.css">
     <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
     <title>Document</title>
 
     <?php include("../header.php"); ?>
 
   </head>
+
 <body>
 
 <section class="intro">
@@ -26,30 +26,38 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-borderless mb-3"> 
-                  <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cadastro de Usuários</h1></div>
+                  <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cadastro de Itens</h1></div>
                    <!-- Formulário -->
                    <div class="center-form">
-                   <form>
+                   <form action="<?php echo BASE_URL . "/menu-inicial/controllers/users.php" ?>" method="POST">
                     <div class="form-group">
                       <label for="nome">Nome:</label>
-                      <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
+                      <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o Nome...">
                     </div>
                     <div class="form-group">
-                      <label for="email">Email:</label>
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Digite o email">
+                      <label for="categoria">Categoria:</label>
+                      <select class="form-control" id="categoria" name="categoria">
+                        <option  value="" selected disabled style="display: none;">Selecione a Categoria...</option>
+                        <option  value="">Massa</option>
+                        <option  value="" >Lasanha</option>
+                        <option  value="" >Pizza</option>
+                      </select>
                     </div>
                     <div class="form-group">
-                      <label for="cpf">CPF:</label>
-                      <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite o CPF">
+                      <label for="valor">Valor:</label>
+                      <input type="text" class="form-control" id="valor" name="valor" placeholder="Digite o Valor...">
                     </div>
                     <div class="form-group">
-                      <label for="telefone">Telefone:</label>
-                      <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite o telefone">
+                      <label for="img">Imagem:</label>
+                      <input type="image" class="form-control" id="img" name="img" placeholder="Insira a Imagem...">
                     </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" name="btn-add"> <a href="book.php" style="color: #ffff;">Cadastrar</a> </button>
+                    <div class="form-group">
+                      <label for="senha">Descrição:</label>
+                      <textarea type="text" class="form-control" id="senha" rows="6" name="senha" placeholder="Digite a Descrição..."></textarea>
+                    </div>
+                    <button type="submit" class="btn mt-4" id="btn-add" name="create-admin"> <a href="book.php" style="color: #ffff;">Cadastrar</a> </button>
                     </form>
-                    </div>
-                  
+                  </div>
                 </div>
               </div>
             </div>

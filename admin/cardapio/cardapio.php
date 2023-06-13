@@ -36,7 +36,7 @@ $itens = selectAll('itens', []);
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cardápio</h1></div>
                   <thead>
                       <button class="btn mt-4" id="btn-add" name="btn-add">
-                        <a href="create.php" style="color: #ffff;">Adicionar</a>
+                        <a href="novo-item.php" style="color: #ffff;">Adicionar</a>
                       </button>
                       <br>
                       <div>

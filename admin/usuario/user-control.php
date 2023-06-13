@@ -14,20 +14,6 @@ $cpf = '';
 $telefone = '';
 
 
-function loginUser($user)
-{
-    $_SESSION['oid'] = $user['oid'];
-    $_SESSION['nome'] = $user['nome'];
-    $_SESSION['message'] = 'Você esta logado!';
-    $_SESSION['type'] = 'success';
-
-    if ($_SESSION['oid']) {
-        header('location:' .  BASE_URL . "/admin/index.php" ); 
-    } 
-
-    exit();
-}
-
 if ( isset($_POST['create-admin'])) {
 
     $errors = validateUser($_POST);
@@ -43,11 +29,11 @@ if ( isset($_POST['create-admin'])) {
         $user = selectOne($table, ['oid' => $user_id]);
 
         if(isset($user)){
-         var_dump($user);
-         header('location:' +  BASE_URL . "/admin/usuario/user.php" ); 
+        var_dump($user);
+        header('location:' +  BASE_URL . "/admin/usuario/user.php" ); 
         }
+
     
-      
     } else {
         $username = $_POST['nome'];
         $email = $_POST['email'];
@@ -76,36 +62,18 @@ if (isset($_POST['update-user'])) {
         $senha = $_POST['senha'];
         $senhaConf = $_POST['senhaConf'];
     }
-}
+    }
 
 
-if (isset($_GET['oid'])) {
+    if (isset($_GET['oid'])) {
     $user = selectOne($table, ['oid' => $_GET['oid']]);
-    
+
     $oid = $user['oid'];
     $nome = $user['nome'];
     $email = $user['email'];
 
 }
 
-
-if (isset($_POST['login-btn'])) {
-    $errors = validateLogin($_POST);
-
-    if (count($errors) === 0) {
-
-        $user = selectOne($table, ['email' => $_POST['email']]);
-
-        if ($user && $_POST['senha'] === $user['senha']) {
-            loginUser($user);
-        } else {
-           array_push($errors, 'Usuário ou Senha Incorretos!');
-        }
-    }
-
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-}
 
 if (isset($_GET['delete_id'])) {
     $count = delete($table, $_GET['delete_id']);
@@ -144,18 +112,3 @@ function validateUser($user)
     return $errors;
 }
 
-
-function validateLogin($user)
-{
-    $errors = array();
-
-    if (empty($user['email'])) {
-        array_push($errors, 'Email é um campo obrigatório');
-    }
-
-    if (empty($user['senha'])) {
-        array_push($errors, 'Senha é um campo obrigatório');
-    }
-
-    return $errors;
-}

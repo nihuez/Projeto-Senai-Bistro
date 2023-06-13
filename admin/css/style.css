@@ -163,9 +163,43 @@ table th {
   transition: 0.3s;
 }
 
+.form-group select{
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  width: 100%;
+  border: 1px solid #E69C00;
+  box-shadow: 30px 0 0  #E69C00;
+  box-sizing: border-box;
+  transition: 0.3s;
+  margin-bottom: 20px;
+  height: 50px;
+}
+
 .form-group input:focus {
   border: #E69C00;
 }
+
+.form-group select:focus{
+  border: #E69C00;
+}
+
+.form-group textarea{
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  width: 100%;
+  border: 1px solid #E69C00;
+  box-shadow: 30px 0 0  #E69C00;
+  box-sizing: border-box;
+  transition: 0.3s;
+  margin-bottom: 20px;
+}
+
+.form-group textarea:focus {
+  border: #E69C00;
+}
+
 
 .center-form {
   margin-top: 50px;
