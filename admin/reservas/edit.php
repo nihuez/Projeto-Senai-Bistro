@@ -30,19 +30,23 @@
                 <div class="table-responsive">
                   <table class="table table-borderless mb-3"> 
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:130px"><h1>Editar Reserva</h1></div>
-                   <!-- Formulário -->
-                   <div class="center-form">
-                   <form action="edit.php" method="post">
-                        <input type="hidden" name="id" value="<?php echo $id; ?>" >
-                    <div class="form-group">
-                      <label for="nome_cliente">Nome Cliente:</label>
-                      <input type="text" class="form-control" id="nome"  value="<?php echo $nome_cliente; ?>" name="nome_cliente">
-                    </div>
-                    <div class="form-group">
-                      <label for="contato_cliente">Contato</label>
-                      <input type="contato_cliente" class="form-control"  value="<?php echo $contato_cliente; ?>" id="contato" name="contato_cliente" placeholder="Digite o contato do cliente">
-                    </div>
-                    <select class="form-control nice-select wide"  value="<?php echo $acompanhantes; ?>" id="acompanhantes" name="acompanhantes" required>
+                  
+                  <!-- Formulário -->
+
+                  <div class="center-form">
+                    <form action="edit.php" method="POST">
+                        
+                    <input type="hidden" name="id" >
+                  <div class="form-group">
+                    <label for="nome_cliente">Nome Cliente:</label>
+                    <input type="text" class="form-control" id="nome" name="nome_cliente" value="<?php echo $reserva['nome']; ?>" placeholder="Digite o nome do cliente" required>
+                    
+                  </div>
+                  <div class="form-group">
+                    <label for="contato_cliente">Contato</label>
+                    <input type="text" class="form-control" id="contato" name="contato_cliente" value="<?php echo $reserva['contato']; ?>" placeholder="Digite o contato do cliente">
+                  </div>
+                  <select class="form-control nice-select wide"  value="<?php echo $acompanhantes; ?>" id="acompanhantes" name="acompanhantes" required> 
                   <option value="" disabled selected>
                     Acompanhantes?
                   </option>
@@ -87,7 +91,7 @@
                 <br>
                     <input type="time" class="form-control" value="<?php echo $hr_reserva; ?>" id="hora" name="hr_reserva" required>
                     </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" name="add-reservas" style="color: #ffff; position: relative; bottom: 50%">Reservar</button>
+                    <button type="submit" class="btn mt-4" id="btn-add" name="update-reservas" style="color: #ffff; position: relative; bottom: 50%">Reservar</button>
                     </form>
                   </div>
                 </div>
@@ -102,5 +106,20 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../assets/js/jquery-3.4.1.min.js"></script>
+<!-- popper js -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<!-- bootstrap js -->
+<script src="../assets/js/bootstrap.js"></script>
+<!-- owl slider -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+</script>
+<!-- isotope js -->
+<script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+<!-- nice select -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+<!-- custom js -->
+<script src="../assets/js/custom.js"></script>
 </body>
 </html>

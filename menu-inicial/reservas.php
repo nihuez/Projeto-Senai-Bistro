@@ -1,6 +1,5 @@
 <?php
 
-
 include("../path.php");
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
@@ -51,20 +50,20 @@ if (isset($_GET['id'])) {
     VALUES ('$nome_cliente', '$contato_cliente', '$acompanhantes', '$mesa', '$data_reserva', '$hr_reserva',)");
     }
 
-    if (isset($_POST['update-turma'])) {
+    if (isset($_POST['update-reservas'])) {
     
         $errors = validateTopic($_POST);
     
         if (count($errors) === 0) { 
             $id = $_POST['id']; 
-            unset($_POST['update-turma'], $_POST['id']);
+            unset($_POST['update-reservas'], $_POST['id']);
             $topic_id = update($table, $id, $_POST);
-            $_SESSION['message'] = 'Turma atualizada com sucesso';
+            $_SESSION['message'] = 'Reserva atualizada com sucesso';
             $_SESSION['type'] = 'success';
-            header('location: ' . BASE_URL . 'book.php');
+            header('location: ' . BASE_URL . '/admin/tb_reservas');
             exit();
         } else {
-            $_SESSION['message'] = 'Não foi possível criar a turma';
+            $_SESSION['message'] = 'Não foi possível editar a reserva';
             $_SESSION['type'] = 'error';
         }
     
