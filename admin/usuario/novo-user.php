@@ -29,7 +29,7 @@
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cadastro de Usuários</h1></div>
                    <!-- Formulário -->
                    <div class="center-form">
-                   <form action="<?php echo BASE_URL . "/menu-inicial/controllers/users.php" ?>" method="POST">
+                   <form action="user-control.php" method="POST">
                     <div class="form-group">
                       <label for="nome">Nome:</label>
                       <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
@@ -48,13 +48,13 @@
                     </div>
                     <div class="form-group">
                       <label for="senha">Senha:</label>
-                      <input type="text" class="form-control" id="senha" name="senha" placeholder="Digite a Senha...">
+                      <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite a Senha...">
                     </div>
                     <div class="form-group">
-                      <label for="senha">Confirmação de Senha:</label>
-                      <input type="text" class="form-control" id="senha" name="senha" placeholder="Confirme a Senha...">
+                      <label for="senhaConf">Confirmação de Senha:</label>
+                      <input type="password" class="form-control" id="senhaConf" name="senhaConf" placeholder="Confirme a Senha...">
                     </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" name="create-admin"> <a href="book.php" style="color: #ffff;">Cadastrar</a> </button>
+                    <button type="submit" class="btn mt-4" id="btn-add" name="create-admin"> <a style="color: #ffff;">Cadastrar</a> </button>
                     </form>
                   </div>
                 </div>
