@@ -689,13 +689,14 @@ a:focus {
   height: 50px;
   margin-bottom: 25px;
   padding-left: 25px;
-  border: 1px solid #999;
+  border: 1px solid #ffc107;;
   outline: none;
   color: #000000;
   border-radius: 5px;
   outline: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+          
 }
 
 #data{

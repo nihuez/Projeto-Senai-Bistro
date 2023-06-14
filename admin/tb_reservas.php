@@ -28,7 +28,7 @@
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Gerenciamento de Reservas</h1></div>
                   <thead>
                       <button class="btn mt-4" id="btn-add" name="btn-add"  style="position:relative; left:80%">
-                        <a href="../menu-inicial/book.php" style="color: #ffff">Adicionar</a>
+                        <a href="reservas/create.php" style="color: #ffff">Adicionar</a>
                       </button>
                       <br>
                       <tr>
@@ -52,7 +52,7 @@
                                     <td><?php echo $reserva['hr_reserva']; ?></td>
 
                                     <td><button type="button" class="btn btn-warning btn-sm px-3">
-                                    <a href="edit.php?id=<?php echo $reservas['id']; ?>" class="edit"><i class="fa fa-edit"></i></td>
+                                    <a href="reservas/edit.php" class="edit"><i class="fa fa-edit"></i></td>
 
                                     <td><button type="button" class="btn btn-dark btn-sm px-3">
                                     <a href="../menu-inicial/reservas.php?del_id=<?php echo $reserva['id'];?>"><i class="fa fa-trash"></i></td>
