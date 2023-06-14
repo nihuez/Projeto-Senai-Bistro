@@ -89,7 +89,7 @@
                     <option value="3">
                       3
                     </option>
-                    <option value="4">
+                    <option value="5">
                       4
                     </option>
                     </select>
@@ -120,7 +120,7 @@
                     <label for="hr_reserva">Hora</label>
                     <input type="time" class="form-control" id="hora" name="hr_reserva" required>
                     </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" data-toggle="modal" data-target="#loginModal" name="add-reservas">Reservar</button>
+                    <button type="submit" class="btn mt-4" id="btn-add" data-toggle="modal" data-target="#loginModal" name="add-reservas">"Reservar</button>
                     </form>
                   </div>
                 </div>
