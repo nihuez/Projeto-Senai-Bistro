@@ -26,6 +26,8 @@ if (isset($_POST['add-reservas'])) {
     
         array_push($mensagens, 'Reserva realizada com sucesso!');
 
+        header('Location:' . "/admin/tb_reservas.php");
+
     } else {
         $_SESSION['message'] = 'Não foi possível criar a reserva';
         array_push($mensagens, 'Não foi possível criar a reserva para essa data!');
