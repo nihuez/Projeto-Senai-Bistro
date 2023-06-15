@@ -1,4 +1,8 @@
-<?php include("../../path.php"); ?>
+<?php include("../../path.php"); 
+
+include("user-control.php"); 
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,7 +33,7 @@
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cadastro de Usuários</h1></div>
                    <!-- Formulário -->
                    <div class="center-form">
-                   <form action="user-control.php" method="POST">
+                   <form action="novo-user.php" method="post">
                     <div class="form-group">
                       <label for="nome">Nome:</label>
                       <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
@@ -54,7 +58,7 @@
                       <label for="senhaConf">Confirmação de Senha:</label>
                       <input type="password" class="form-control" id="senhaConf" name="senhaConf" placeholder="Confirme a Senha...">
                     </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" name="create-admin"> <a style="color: #ffff;">Cadastrar</a> </button>
+                    <button type="submit" class="btn mt-4" id="btn-add" name="create-user">Cadastrar</button>
                     </form>
                   </div>
                 </div>

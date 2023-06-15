@@ -1,4 +1,8 @@
-<?php include("../../path.php"); ?>
+<?php include("../../path.php"); 
+
+include('cardapio-control.php');
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,7 +33,7 @@
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cadastro de Itens</h1></div>
                    <!-- Formulário -->
                    <div class="center-form">
-                   <form action="<?php echo BASE_URL . "/menu-inicial/controllers/users.php" ?>" method="POST">
+                   <form action="novo-item.php" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="nome">Nome:</label>
                       <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o Nome...">
@@ -38,9 +42,9 @@
                       <label for="categoria">Categoria:</label>
                       <select class="form-control" id="categoria" name="categoria">
                         <option  value="" selected disabled style="display: none;">Selecione a Categoria...</option>
-                        <option  value="">Massa</option>
-                        <option  value="" >Lasanha</option>
-                        <option  value="" >Pizza</option>
+                        <option  value="massas">Massa</option>
+                        <option  value="lasanha" >Lasanha</option>
+                        <option  value="pizzas" >Pizza</option>
                       </select>
                     </div>
                     <div class="form-group">
@@ -49,13 +53,13 @@
                     </div>
                     <div class="form-group">
                       <label for="img">Imagem:</label>
-                      <input type="image" class="form-control" id="img" name="img" placeholder="Insira a Imagem...">
+                      <input type="file" class="form-control" id="img" name="img" style="height:50px" placeholder="Insira a Imagem...">
                     </div>
                     <div class="form-group">
-                      <label for="senha">Descrição:</label>
-                      <textarea type="text" class="form-control" id="senha" rows="6" name="senha" placeholder="Digite a Descrição..."></textarea>
+                      <label for="descricao">Descrição:</label>
+                      <textarea type="text" class="form-control" id="descricao" rows="6" name="descricao" placeholder="Digite a Descrição..."></textarea>
                     </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" name="create-admin"> <a href="book.php" style="color: #ffff;">Cadastrar</a> </button>
+                    <button type="submit" class="btn mt-4" id="btn-add" name="create-item">Cadastrar</button>
                     </form>
                   </div>
                 </div>
