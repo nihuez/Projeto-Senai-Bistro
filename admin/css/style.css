@@ -45,7 +45,7 @@ body{
 
 #btn-add:hover {
   background-color: #E69C00;
-  color: #E69C00;
+  color: #000000;
   box-shadow: 0 8px 24px 0 rgba(255, 255, 255, .2)
 }
 

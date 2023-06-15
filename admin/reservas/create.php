@@ -70,10 +70,10 @@
                       <input type="text" class="form-control" id="nome" name="nome_cliente" placeholder="Digite o nome do cliente" required>
                     </div>
                     <div class="form-group">
-                      <label for="contato_cliente">Contato</label>
+                      <label for="contato_cliente">Contato:</label>
                       <input type="contato_cliente" class="form-control" id="contato" name="contato_cliente" placeholder="Digite o contato do cliente" required>
                     </div>
-                    <label for="acompanhantes">Acompanhantes</label>
+                    <label for="acompanhantes">Acompanhantes:</label>
                     <select class="form-control nice-select wide" id="acompanhantes" name="acompanhantes" required>
                     <option value="" disabled selected>
                     Acompanhantes?
@@ -93,7 +93,7 @@
                       4
                     </option>
                     </select>
-                    <label for="mesa">Escolha a Mesa</label>
+                    <label for="mesa">Escolha a Mesa:</label>
                     <select class="form-control" id="mesa" name="mesa"required>
                     <option value="" disabled selected>
                       Escolha sua mesa:
@@ -112,15 +112,34 @@
                     </option>
                   </select>
 
-                    <div>
-                    <label for="data_reserva">Data</label>
-                    <input type="date" class="form-control date-picker" id="data" name="data_reserva" required>
-                    </div>
+                  <div>
+                  <label for="data_reserva">Data:</label>
+                  <input type="date" class="form-control date-picker" id="data" name="data_reserva" required min="<?php echo date('Y-m-d'); ?>">
+                  </div>
 
-                    <label for="hr_reserva">Hora</label>
-                    <input type="time" class="form-control" id="hora" name="hr_reserva" required>
-                    </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" data-toggle="modal" data-target="#loginModal" name="add-reservas">"Reservar</button>
+                  <div>
+                  <label for="hr_reserva">Hora:</label>
+                  <input type="time" class="form-control" id="hora" name="hr_reserva" required>
+                  </div>
+                  
+                    <script>
+                        const horaInput = document.getElementById('hora');
+
+                        const validarHora = () => {
+                            const horaSelecionada = horaInput.value;
+                            const horarioProibidoInicial = '18:00';
+                            const horarioProibidoFinal = '00:00';
+
+                            if (horaSelecionada >= horarioProibidoInicial && horaSelecionada <= horarioProibidoFinal) {
+                                alert('Horário não permitido!');
+                                horaInput.value = '';
+                            }
+                        }
+
+                        horaInput.addEventListener('change', validarHora);
+                    </script>
+
+                    <button type="submit" class="btn mt-4" id="btn-add" data-toggle="modal" data-target="#loginModal" name="add-reservas">Reservar</button>
                     </form>
                   </div>
                 </div>

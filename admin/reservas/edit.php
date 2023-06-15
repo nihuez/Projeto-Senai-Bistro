@@ -1,7 +1,6 @@
 <?php   include("../../path.php"); 
         include(ROOT_PATH . "/menu-inicial/reservas.php");
 ?>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,9 +16,40 @@
 
   </head>
 
-    <body>
+<body class="sub_page">  
 
-    <section class="intro">
+<?php if(count($mensagens) > 0): ?>
+      <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="loginModalLabel"></h5>
+                  </div>
+                  <div class="modal-body">
+                      <?php foreach ($mensagens as $mensagem): ?>
+                          <h5><?php echo $mensagem; ?></h5>
+                      <?php endforeach; 
+                      ?>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" id="modal-btn" data-dismiss="modal" onclick="fecharModal()">Fechar</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <script>
+      function fecharModal() {
+        $('#errorModal').modal("hide");
+          }
+
+          $(document).ready(function() {
+              $('#errorModal').modal('show');
+          });
+      </script>
+
+  <?php endif; ?>
+
+<section class="intro">
   <div class="bg-image h-100">
     <div class="mask d-flex align-items-center h-100">
       <div class="container">
@@ -30,68 +60,38 @@
                 <div class="table-responsive">
                   <table class="table table-borderless mb-3"> 
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:130px"><h1>Editar Reserva</h1></div>
-                  
-                  <!-- Formulário -->
-
-                  <div class="center-form">
+                   <!-- Formulário -->
+                   <div class="center-form">
+                    <div class="form-group">
                     <form action="edit.php" method="POST">
-                        
-                    <input type="hidden" name="id" >
-                  <div class="form-group">
-                    <label for="nome_cliente">Nome Cliente:</label>
-                    <input type="text" class="form-control" id="nome" name="nome_cliente" value="<?php echo $reserva['nome']; ?>" placeholder="Digite o nome do cliente" required>
-                    
-                  </div>
-                  <div class="form-group">
-                    <label for="contato_cliente">Contato</label>
-                    <input type="text" class="form-control" id="contato" name="contato_cliente" value="<?php echo $reserva['contato']; ?>" placeholder="Digite o contato do cliente">
-                  </div>
-                  <select class="form-control nice-select wide"  value="<?php echo $acompanhantes; ?>" id="acompanhantes" name="acompanhantes" required> 
-                  <option value="" disabled selected>
-                    Acompanhantes?
-                  </option>
-                  <option value="0">
-                    0
-                  <option value="1">
-                    1
-                  </option>
-                  <option value="2">
-                    2
-                  </option>
-                  <option value="3">
-                    3
-                  </option>
-                  <option value="4">
-                    4
-                  </option>
-                  <br>
-                </select>
-                <br>
-                <select class="form-control nice-select wide"  value="<?php echo $mesa; ?>" id="mesa" name="mesa"required>
-                  <option value="" disabled selected>
-                    Escolha sua mesa:
-                  </option>
-                  <option value="25">
-                    25
-                  </option>
-                  <option value="34">
-                    34
-                  </option>
-                  <option value="43">
-                    43
-                  </option>
-                  <option value="59">
-                    59
-                  </option>
-                </select>
-                <br>
+                        <input type="hidden" name="id" value="<?php echo $id; ?>" >
+                        <div>
+                      <label for="nome_cliente">Nome Cliente:</label>
+                      <input type="text" class="form-control" id="nome" name="nome_cliente"  value="<?php echo $reserva['nome_cliente'] ?>" placeholder="Digite o nome do cliente" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="contato_cliente">Contato:</label>
+                      <input type="contato_cliente" class="form-control" id="contato" name="contato_cliente" value="<?php echo $reserva['contato_cliente'] ?>" placeholder="Digite o contato do cliente" required>
+                    </div>
+                    <label for="acompanhantes">Acompanhantes:</label>
+                    <input type="text" id="acomapanhantes" value="<?php echo $reserva['acompanhantes'] ?>" name="acompanhantes" class="text-input" readonly>
+                    <option value="" disabled selected>
+                    </option>
+
+                    </select>
+                    <label for="mesa">Escolha a Mesa:</label>
+                    <input type="text" id="mesa" value="<?php echo $reserva['mesa'] ?>" name="mesa" class="text-input" readonly>
+                    </select>
+
                     <div>
-                    <input type="date" class="form-control date-picker"  value="<?php echo $data_reserva; ?>" id="data" name="data_reserva" required>
+                    <label for="data_reserva">Data:</label>
+                  <input type="date" class="form-control date-picker" id="data" value="<?php echo $reserva['data_reserva'];?>" name="data_reserva" required min="<?php echo date('Y-m-d'); ?>">
+                  </div>
+
+                    <label for="hr_reserva">Hora:</label>
+                    <input type="time" class="form-control" id="hora" value="<?php echo $reserva['hr_reserva'];?>"name="hr_reserva" required>
                     </div>
-                <br>
-                    <input type="time" class="form-control" value="<?php echo $hr_reserva; ?>" id="hora" name="hr_reserva" required>
-                    </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" name="update-reservas" style="color: #ffff; position: relative; bottom: 50%">Reservar</button>
+                    <button type="submit" class="btn mt-4" id="btn-add" data-toggle="modal" data-target="#loginModal" name="update-reservas">Salvar</button>
                     </form>
                   </div>
                 </div>
@@ -106,6 +106,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- jQery -->
 <script src="../assets/js/jquery-3.4.1.min.js"></script>
 <!-- popper js -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
@@ -123,3 +124,4 @@
 <script src="../assets/js/custom.js"></script>
 </body>
 </html>
+
