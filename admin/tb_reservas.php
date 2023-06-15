@@ -34,7 +34,8 @@
                       <tr>
                         <th scope="col">NOME</th>
                         <th scope="col">CONTATO</th>
-                        <th scope="col">ACOMPANHANTES</th>                      
+                        <th scope="col">ACOMPANHANTES</th> 
+                        <th scope="col">MESA</th>                      
                         <th scope="col">DATA</th>
                         <th scope="col">HORA</th>
                         <th scope="col">EDITAR</th>
@@ -52,10 +53,10 @@
                                     <td><?php echo $reserva['hr_reserva']; ?></td>
 
                                     <td><button type="button" class="btn btn-warning btn-sm px-3">
-                                    <a href="reservas/edit.php" class="edit"><i class="fa fa-edit"></i></td>
+                                    <a style="color: black" href="reservas/edit.php?id=<?php echo $reserva['id'];?>" class="edit"><i class="fa fa-edit"></i></td>
 
                                     <td><button type="button" class="btn btn-dark btn-sm px-3">
-                                    <a href="../menu-inicial/reservas.php?del_id=<?php echo $reserva['id'];?>"><i class="fa fa-trash"></i></td>
+                                    <a style="color: white" href="../menu-inicial/reservas.php?del_id=<?php echo $reserva['id'];?>"><i class="fa fa-trash"></i></td>
 
                                     </button>
                                     </button>

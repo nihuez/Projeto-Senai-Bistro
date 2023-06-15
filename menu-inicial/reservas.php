@@ -7,7 +7,7 @@ $table = 'reservas';
 
 $errors = array();
 $mensagens = array();
-$oid = '';
+$id = '';
 $nome_cliente = '';
 $contato_cliente = '';
 $acompanhantes = '';
@@ -23,10 +23,9 @@ if (isset($_POST['add-reservas'])) {
         unset($_POST['add-reservas']);
         $reserva_id = create($table, $_POST);
         $_SESSION['type'] = 'success';
-    
         array_push($mensagens, 'Reserva realizada com sucesso!');
 
-        header('Location:' . "/admin/tb_reservas.php");
+        header('Location:' . "../tb_reservas.php");
 
     } else {
         $_SESSION['message'] = 'Não foi possível criar a reserva';
@@ -34,6 +33,8 @@ if (isset($_POST['add-reservas'])) {
        
         $_SESSION['type'] = 'error';
     }
+
+
 }
 
 if (isset($_GET['id'])) {
@@ -41,35 +42,28 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $reserva = selectOne($table, ['id' => $id]);
     $id = $_POST['id'];
-    $nome_cliente = $_POST['nome'];
-    $contato_cliente = $_POST['contato'];
+    $nome_cliente = $_POST['nome_cliente'];
+    $contato_cliente = $_POST['contato_cliente'];
     $acompanhantes = $_POST['acompanhantes'];
     $mesa = $_POST['mesa'];
-    $data_reserva = $_POST['data'];
-    $hr_reserva = $_POST['hora'];
-
-    $result = mysqli_query($conn, "INSERT INTO reservas('nome', 'contato', 'acompanhantes', 'mesa', 'data', 'hora') 
-    VALUES ('$nome_cliente', '$contato_cliente', '$acompanhantes', '$mesa', '$data_reserva', '$hr_reserva',)");
+    $data_reserva = $_POST['data_reserva'];
+    $hr_reserva = $_POST['hr_reserva'];
     }
 
     if (isset($_POST['update-reservas'])) {
     
-        $errors = validateTopic($_POST);
-    
         if (count($errors) === 0) { 
             $id = $_POST['id']; 
             unset($_POST['update-reservas'], $_POST['id']);
-            $topic_id = update($table, $id, $_POST);
-            $_SESSION['message'] = 'Reserva atualizada com sucesso';
-            $_SESSION['type'] = 'success';
-            header('location: ' . BASE_URL . '/admin/tb_reservas');
+            $id = update($table, $id, $_POST);
+            header('Location: ../tb_reservas.php');
             exit();
         } else {
             $_SESSION['message'] = 'Não foi possível editar a reserva';
-            $_SESSION['type'] = 'error';
+            header('Location: edit.php');
         }
-    
     }
+    
 
     if (isset($_GET['del_id'])) {
   
