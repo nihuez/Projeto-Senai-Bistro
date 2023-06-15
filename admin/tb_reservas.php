@@ -52,10 +52,10 @@
                                     <td><?php echo $reserva['hr_reserva']; ?></td>
 
                                     <td><button type="button" class="btn btn-warning btn-sm px-3">
-                                    <a href="reservas/edit.php" class="edit"><i class="fa fa-edit"></i></td>
+                                    <a style="color:black;" href="reservas/edit.php" class="edit"><i class="fa fa-edit"></i></td>
 
                                     <td><button type="button" class="btn btn-dark btn-sm px-3">
-                                    <a href="../menu-inicial/reservas.php?del_id=<?php echo $reserva['id'];?>"><i class="fa fa-trash"></i></td>
+                                    <a  style="color:white;" href=<?php echo "../menu-inicial/reservas.php?del_id=". $reserva['id'];?>><i class="fa fa-trash"></i></td>
 
                                     </button>
                                     </button>

@@ -2,30 +2,45 @@
 include("../../path.php");
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
-$table = 'usuarios';
-
 $errors = array();
-$oid = '';
+$id = '';
 $nome = '';
-$senha = '';
-$senhaConf = '';
-$email = '';
-$cpf = '';
-$telefone = '';
+$valor = '';
+$descricao = '';
+$categoria = '';
 
-
-if (isset($_POST['create-user'])) {
+if (isset($_POST['create-item'])) {
 
     if (count($errors) === 0) {
 
-        unset($_POST['create-user']);
-        unset($_POST['senhaConf']);
+        if(isset($_FILES['img'])){
 
-        $user_id = create($table, $_POST);
+            $img = $_FILES['img']['tmp_name'];
+            $tipo = $_FILES['img']['type'];
 
-        $_SESSION['type'] = 'success';
-        
-        header('Location:' . "user.php");
+            $conteudo = base64_encode(file_get_contents($img));
+
+            $sql = 'INSERT INTO `itens`(`nome`, `valor`, `descricao`, `categoria`, `img`, `tipo`) 
+            VALUES (?, ?, ?, ?, ?, ?)';
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bind_param('ssssss', $_POST['nome'], $_POST['valor'], $_POST['descricao'], $_POST['categoria'], $conteudo, $tipo);
+
+            if ($stmt->execute()) {
+                $id = $stmt->insert_id;
+                $stmt->close();
+                $_SESSION['type'] = 'success';
+                header('Location: cardapio.php');
+                exit();
+            }
+
+            $_SESSION['type'] = 'success';
+    
+            header('Location:' . "cardapio.php");
+
+        }
+
 
     } else {
 

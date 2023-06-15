@@ -1,5 +1,4 @@
 <?php
-include("../../path.php");
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
 $table = 'usuarios';
@@ -15,12 +14,12 @@ $telefone = '';
 
 function loginUser($user)
 {
-    $_SESSION['oid'] = $user['oid'];
+    $_SESSION['id'] = $user['id'];
     $_SESSION['nome'] = $user['nome'];
     $_SESSION['message'] = 'Você esta logado!';
     $_SESSION['type'] = 'success';
 
-    if ($_SESSION['oid']) {
+    if ($_SESSION['id']) {
         header('location:' .  BASE_URL . "/admin/index.php" ); 
     } 
 
@@ -60,8 +59,8 @@ if (isset($_POST['update-user'])) {
     $errors = validateUser($_POST);
 
     if (count($errors) === 0) {
-        $oid = $_POST['oid'];
-        unset($_POST['senhaConf'], $_POST['update-user'], $_POST['oid']);
+        $oid = $_POST['id'];
+        unset($_POST['senhaConf'], $_POST['update-user'], $_POST['id']);
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $count = update($table, $oid, $_POST);
         $_SESSION['message'] = 'Administrador criado';
@@ -78,10 +77,10 @@ if (isset($_POST['update-user'])) {
 }
 
 
-if (isset($_GET['oid'])) {
-    $user = selectOne($table, ['oid' => $_GET['oid']]);
+if (isset($_GET['id'])) {
+    $user = selectOne($table, ['id' => $_GET['id']]);
     
-    $oid = $user['oid'];
+    $oid = $user['id'];
     $nome = $user['nome'];
     $email = $user['email'];
 
