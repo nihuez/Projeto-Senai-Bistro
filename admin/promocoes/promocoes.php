@@ -1,5 +1,5 @@
 <?php include("../../path.php"); ?>
-<?php include(ROOT_PATH . "/menu-inicial/promo-admin.php"); ?>
+<?php include(ROOT_PATH . "/banco-de-dados/consultas.php"); ?>
 
 $desconto = selectAll('desconto', []);
 
@@ -17,8 +17,8 @@ $desconto = selectAll('desconto', []);
     <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
     <title>document</title>
 
-    <?php include("header.php"); ?>
-
+    <?php include("../header.php"); ?>
+    
 </head>
 
 <body>
