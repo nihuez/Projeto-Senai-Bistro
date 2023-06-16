@@ -68,7 +68,7 @@ if (isset($_POST['update-user'])) {
 
 
 if (isset($_GET['del_id'])) {
-    $count = delete($table, $_GET['del_id']);
+    $count = delete();
     $_SESSION['message'] = 'Administrador deletado';
     $_SESSION['type'] = 'success';
     header('location: ' . BASE_URL . 'admin/usuario/user.php'); 
