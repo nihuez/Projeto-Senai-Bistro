@@ -9,45 +9,43 @@ $valor = '';
 $descricao = '';
 $categoria = '';
 
+$table = 'itens';
+
 if (isset($_POST['create-item'])) {
 
-    if (count($errors) === 0) {
+    if (!empty($_FILES['img']['name'])) {
+        $image_name = time() . '_' . $_FILES['img']['name'];
+        $destination = ROOT_PATH . "/assets/images/" . $image_name;
 
-        if(isset($_FILES['img'])){
+        $result = move_uploaded_file($_FILES['img']['tmp_name'], $destination);
 
-            $img = $_FILES['img']['tmp_name'];
-            $tipo = $_FILES['img']['type'];
-
-            $conteudo = base64_encode(file_get_contents($img));
-
-            $sql = 'INSERT INTO `itens`(`nome`, `valor`, `descricao`, `categoria`, `img`, `tipo`) 
-            VALUES (?, ?, ?, ?, ?, ?)';
-
-            $stmt = $conn->prepare($sql);
-
-            $stmt->bind_param('ssssss', $_POST['nome'], $_POST['valor'], $_POST['descricao'], $_POST['categoria'], $conteudo, $tipo);
-
-            if ($stmt->execute()) {
-                $id = $stmt->insert_id;
-                $stmt->close();
-                $_SESSION['type'] = 'success';
-                header('Location: cardapio.php');
-                exit();
-            }
-
-            $_SESSION['type'] = 'success';
-    
-            header('Location:' . "cardapio.php");
-
+        if ($result) {
+            $_POST['img'] = $image_name;
+        } else {
+            array_push($errors, "Falha em carregar imagem");
         }
-
-
     } else {
-
-        $_SESSION['message'] = 'Não foi possível criar o usuário';
-
-        $_SESSION['type'] = 'error';
+        array_push($errors, "Imagem obrigatória");
     }
+
+    if (count($errors) == 0) {
+
+        unset($_POST['create-item']);
+
+        $post_id = create($table, $_POST);
+
+        $_SESSION['message'] = "Item criado com sucesso";
+        $_SESSION['type'] = "success";
+
+        header("location: " . BASE_URL . "/admin/cardapio/cardapio.php"); 
+        exit();    
+    } else {
+        $title = $_POST['title'];
+        $body = $_POST['body'];
+        $topic_id = $_POST['topic_id'];
+        $published = isset($_POST['published']) ? 1 : 0;
+    }
+
 }
 
 if (isset($_POST['update-user'])) {
@@ -85,9 +83,9 @@ if (isset($_POST['update-user'])) {
 
 if (isset($_GET['del_id'])) {
     $count = delete($table, $_GET['del_id']);
-    $_SESSION['message'] = 'Administrador deletado';
+    $_SESSION['message'] = 'Item deletado';
     $_SESSION['type'] = 'success';
-    header('location: ' . BASE_URL . 'admin/usuario/user.php'); 
+    header('location: ' . BASE_URL . 'admin/cardapio/cardapio.php'); 
     exit();
 }
 

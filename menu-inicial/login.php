@@ -1,5 +1,12 @@
 <?php include("../path.php"); ?>
-<?php include("controllers/users.php"); ?>
+<?php include("controllers/users.php"); 
+
+
+if(isset($_SESSION['id'])){
+	header('location:' .  BASE_URL . "/admin/index.php" );
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

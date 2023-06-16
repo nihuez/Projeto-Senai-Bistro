@@ -16,9 +16,17 @@
 <body>
 
 <section class="intro">
-  <div class="bg-image h-100">
+<div class="bg-image h-100">
     <div class="mask d-flex align-items-center h-100">
-      <div class="container"> </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-20" style="text-align:center; justify-content:center;">
+           
+              <h1 class="title" style="font-family: 'Dancing Script', cursive; font-size:90px; color:white; position:absolute; top: 40%; left:30%">Bem Vindo(a), Admin!</h1>
+            
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

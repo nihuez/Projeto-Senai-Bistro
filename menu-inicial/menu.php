@@ -38,14 +38,14 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
             <div class="box">
               <div>
                 <div class="img-box">
-                <img src="<?php echo $massa['img']; ?>" alt="">
+                <img src="<?php echo BASE_URL . '/assets/images/' . $pizza['img']; ?>" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
                    <?php echo $pizza['nome']; ?>
                   </h5>
                   <p>
-                  <?php echo $pizza['descricao']; ?>
+                  <?php echo substr($pizza['descricao'], 0, 20); ?>
                   </p>
                   <div class="options">
                     <h6>
@@ -64,14 +64,14 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img src="<?php echo $massa['img']; ?>" alt="">
+                  <img src="<?php echo BASE_URL . '/assets/images/' . $massa['img']; ?>" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
                    <?php echo $massa['nome']; ?>
                   </h5>
                   <p>
-                  <?php echo $massa['descricao'] ;?>
+                  <?php echo substr($massa['descricao'], 0, 20); ;?>
                   </p>
                   <div class="options">
                     <h6>
@@ -92,14 +92,14 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
             <div class="box">
               <div>
                 <div class="img-box">
-                <img src="<?php echo $massa['img']; ?>" alt="">
+                <img src="<?php echo BASE_URL . '/assets/images/' . $lasanha['img']; ?>" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
                    <?php echo $lasanha['nome']; ?>
                   </h5>
                   <p>
-                  <?php echo $lasanha['descricao']; ?>
+                  <?php echo substr($lasanha['descricao'], 0, 20); ?>
                   </p>
                   <div class="options">
                     <h6>
