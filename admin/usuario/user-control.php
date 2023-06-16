@@ -13,6 +13,8 @@ $email = '';
 $cpf = '';
 $telefone = '';
 
+$user = selectAll($table, []);
+
 
 if (isset($_POST['create-user'])) {
 
@@ -36,26 +38,21 @@ if (isset($_POST['create-user'])) {
 }
 
 if (isset($_POST['update-user'])) {
-
-    $errors = validateUser($_POST);
-
-    if (count($errors) === 0) {
-        $oid = $_POST['id'];
-        unset($_POST['senhaConf'], $_POST['update-user'], $_POST['id']);
-        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $count = update($table, $oid, $_POST);
-        $_SESSION['message'] = 'Administrador criado';
+    
+    if (count($errors) === 0) { 
+        $oid = $_POST['id']; 
+        unset($_POST['update-user'], $_POST['id']);
+        $topic_oid = update($table, $oid, $_POST); 
+        $_SESSION['message'] = 'cadastro atualizado com sucesso';
         $_SESSION['type'] = 'success';
-        header('location: ' . BASE_URL . '/index.php'); 
+        header('location: ' . BASE_URL . '/usuario/user.php');
         exit();
-        
     } else {
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $senhaConf = $_POST['senhaConf'];
+        $_SESSION['message'] = 'Não foi possível atualizar user';
+        $_SESSION['type'] = 'error';
     }
-    }
+} 
+
 
 
     if (isset($_GET['id'])) {
@@ -63,8 +60,10 @@ if (isset($_POST['update-user'])) {
 
     $oid = $user['id'];
     $nome = $user['nome'];
+    $senha = $user['senha'];
     $email = $user['email'];
-
+    $cpf = $user['cpf'];
+    $telefone = $user['telefone'];
 }
 
 

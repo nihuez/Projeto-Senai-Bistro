@@ -140,6 +140,7 @@
                     </script>
 
                     <button type="submit" class="btn mt-4" id="btn-add" data-toggle="modal" data-target="#loginModal" name="add-reservas">Reservar</button>
+
                     </form>
                   </div>
                 </div>
