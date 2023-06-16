@@ -12,42 +12,14 @@
     <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
     <title>Document</title>
 
-    <?php include("../header.php"); ?>
+    <?php include("../header.php"); 
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+    ?>
 
   </head>
 
 <body class="sub_page">  
-
-<?php if(count($mensagens) > 0): ?>
-      <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                  <div class="modal-header">
-                      <h5 class="modal-title" id="loginModalLabel"></h5>
-                  </div>
-                  <div class="modal-body">
-                      <?php foreach ($mensagens as $mensagem): ?>
-                          <h5><?php echo $mensagem; ?></h5>
-                      <?php endforeach; 
-                      ?>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" id="modal-btn" data-dismiss="modal" onclick="fecharModal()">Fechar</button>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <script>
-      function fecharModal() {
-        $('#errorModal').modal("hide");
-          }
-
-          $(document).ready(function() {
-              $('#errorModal').modal('show');
-          });
-      </script>
-
-  <?php endif; ?>
 
 <section class="intro">
   <div class="bg-image h-100">
@@ -61,37 +33,43 @@
                   <table class="table table-borderless mb-3"> 
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:130px"><h1>Editar Reserva</h1></div>
                    <!-- Formulário -->
+
                    <div class="center-form">
                     <div class="form-group">
                     <form action="edit.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $id; ?>" >
-                        <div>
+                        <input type="hidden" name="id" value="<?php echo $reserva['id']; ?>" >
+                    <div>
                       <label for="nome_cliente">Nome Cliente:</label>
-                      <input type="text" class="form-control" id="nome" name="nome_cliente"  value="<?php echo $reserva['nome_cliente'] ?>" placeholder="Digite o nome do cliente" required>
+                      <input type="text" class="form-control" id="nome" name="nome_cliente"  value="<?php echo $reserva['nome_cliente'] ?>" placeholder="Digite o nome do cliente">
                     </div>
+
                     <div class="form-group">
                       <label for="contato_cliente">Contato:</label>
-                      <input type="contato_cliente" class="form-control" id="contato" name="contato_cliente" value="<?php echo $reserva['contato_cliente'] ?>" placeholder="Digite o contato do cliente" required>
+                      <input type="contato_cliente" class="form-control" id="contato" name="contato_cliente" value="<?php echo $reserva['contato_cliente'] ?>" placeholder="Digite o contato do cliente">
                     </div>
+
                     <label for="acompanhantes">Acompanhantes:</label>
-                    <input type="text" id="acomapanhantes" value="<?php echo $reserva['acompanhantes'] ?>" name="acompanhantes" class="text-input" readonly>
+                    <input type="text" id="acomapanhantes" value="<?php echo $reserva['acompanhantes'] ?>" name="acompanhantes" class="text-input">
                     <option value="" disabled selected>
                     </option>
 
                     </select>
                     <label for="mesa">Escolha a Mesa:</label>
-                    <input type="text" id="mesa" value="<?php echo $reserva['mesa'] ?>" name="mesa" class="text-input" readonly>
+                    <input type="text" id="mesa" value="<?php echo $reserva['mesa'] ?>" name="mesa" class="text-input">
                     </select>
 
                     <div>
-                    <label for="data_reserva">Data:</label>
-                  <input type="date" class="form-control date-picker" id="data" value="<?php echo $reserva['data_reserva'];?>" name="data_reserva" required min="<?php echo date('Y-m-d'); ?>">
-                  </div>
-
-                    <label for="hr_reserva">Hora:</label>
-                    <input type="time" class="form-control" id="hora" value="<?php echo $reserva['hr_reserva'];?>"name="hr_reserva" required>
+                      <label for="data_reserva">Data:</label>
+                      <input type="date" class="form-control date-picker" id="data" value="<?php echo $reserva['data_reserva'];?>" name="data_reserva" required min="<?php echo date('Y-m-d'); ?>">
                     </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" data-toggle="modal" data-target="#loginModal" name="update-reservas">Salvar</button>
+                    
+                    <div>
+                      <label for="hr_reserva">Hora:</label>
+                      <input type="time" class="form-control" id="hora" value="<?php echo $reserva['hr_reserva'];?>"name="hr_reserva">
+                    </div>
+
+                    <button type="submit" class="btn mt-4" id="btn-add" name="update-reservas">Salvar</button>
+
                     </form>
                   </div>
                 </div>
