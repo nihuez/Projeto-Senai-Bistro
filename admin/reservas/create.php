@@ -128,6 +128,9 @@
                         const validarHora = () => {
                             const horaSelecionada = horaInput.value;
                             const horarioProibidoInicial = '18:00';
+            
+            
+            
                             const horarioProibidoFinal = '00:00';
 
                             if (horaSelecionada >= horarioProibidoInicial && horaSelecionada <= horarioProibidoFinal) {
