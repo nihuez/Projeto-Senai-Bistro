@@ -59,7 +59,7 @@ include("user-control.php");
                       <label for="senhaConf">Confirmação de Senha:</label>
                       <input type="password" class="form-control" id="senha" name="senha" value="<?php echo $user['senha']; ?>"placeholder="Confirme a Senha...">
                     </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" name="'update-user'">Atualizar</button>
+                    <button type="submit" class="btn mt-4" id="btn-add" name="update-user">Atualizar</button>
                     </form>
                   </div>
                 </div>
