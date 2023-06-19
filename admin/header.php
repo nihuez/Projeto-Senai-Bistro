@@ -22,7 +22,6 @@
           </div>
         </li>
         <li><a href="<?php echo BASE_URL . '/logout.php' ?>">SAIR</a></li>
-        <li><a href="<?php echo BASE_URL . 'index.php' ?>">VOLTAR AO MENU</a></li>
       </ul>
     </div>
   </nav>

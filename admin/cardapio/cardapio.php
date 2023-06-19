@@ -61,7 +61,7 @@ $itens = selectAll('itens', []);
                                   </td>
                                     <td><?php echo $item['categoria']; ?></td>
                                     <td><button type="button" class="btn btn-warning btn-sm px-3" style="margin:2px">
-                                    <a style="color:black;" href="edit.php" name="update-user" class="user-control.php"><i class="fa fa-edit"></i></td>
+                                    <a style="color:black;" href="edit.php?id=<?php echo $item['id']?>"><i class="fa fa-edit"></i></td>
                                     <td><button type="button" class="btn btn-dark btn-sm px-3">
                                     <a  style="color:white;" href=<?php echo "cardapio-control.php?del_id=". $item['id'];?>><i class="fa fa-trash"></i></td>
                                     </button>
