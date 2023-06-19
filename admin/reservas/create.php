@@ -128,6 +128,9 @@
                         const validarHora = () => {
                             const horaSelecionada = horaInput.value;
                             const horarioProibidoInicial = '18:00';
+            
+            
+            
                             const horarioProibidoFinal = '00:00';
 
                             if (horaSelecionada >= horarioProibidoInicial && horaSelecionada <= horarioProibidoFinal) {
@@ -140,6 +143,7 @@
                     </script>
 
                     <button type="submit" class="btn mt-4" id="btn-add" data-toggle="modal" data-target="#loginModal" name="add-reservas">Reservar</button>
+
                     </form>
                   </div>
                 </div>

@@ -2,7 +2,7 @@
 include("../../path.php");
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
-$table = 'usuarios';
+$table = 'itens';
 
 $errors = array();
 $oid = '';
@@ -13,21 +13,18 @@ $email = '';
 $cpf = '';
 $telefone = '';
 
-$user = selectAll($table, []);
 
-
-if (isset($_POST['create-user'])) {
+if (isset($_POST['create-promo'])) {
 
     if (count($errors) === 0) {
 
-        unset($_POST['create-user']);
-        unset($_POST['senhaConf']);
+        unset($_POST['create-promo']);
 
-        $user_id = create($table, $_POST);
+        $promo_id = create($table, $_POST);
 
         $_SESSION['type'] = 'success';
         
-        header('Location:' . "user.php");
+        header('Location:' . "promocoes.php");
 
     } else {
 
@@ -38,21 +35,26 @@ if (isset($_POST['create-user'])) {
 }
 
 if (isset($_POST['update-user'])) {
-    
-    if (count($errors) === 0) { 
-        $oid = $_POST['id']; 
-        unset($_POST['update-user'], $_POST['id']);
-        $topic_oid = update($table, $oid, $_POST); 
-        $_SESSION['message'] = 'cadastro atualizado com sucesso';
-        $_SESSION['type'] = 'success';
-        header('location: ' . BASE_URL . '/usuario/user.php');
-        exit();
-    } else {
-        $_SESSION['message'] = 'Não foi possível atualizar user';
-        $_SESSION['type'] = 'error';
-    }
-} 
 
+    $errors = validateUser($_POST);
+
+    if (count($errors) === 0) {
+        $oid = $_POST['id'];
+        unset($_POST['senhaConf'], $_POST['update-user'], $_POST['id']);
+        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $count = update($table, $oid, $_POST);
+        $_SESSION['message'] = 'Administrador criado';
+        $_SESSION['type'] = 'success';
+        header('location: ' . BASE_URL . '/index.php'); 
+        exit();
+        
+    } else {
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        $senhaConf = $_POST['senhaConf'];
+    }
+    }
 
 
     if (isset($_GET['id'])) {
@@ -60,15 +62,13 @@ if (isset($_POST['update-user'])) {
 
     $oid = $user['id'];
     $nome = $user['nome'];
-    $senha = $user['senha'];
     $email = $user['email'];
-    $cpf = $user['cpf'];
-    $telefone = $user['telefone'];
+
 }
 
 
 if (isset($_GET['del_id'])) {
-    $count = delete($table, $_GET['del_id']);
+    $count = delete();
     $_SESSION['message'] = 'Administrador deletado';
     $_SESSION['type'] = 'success';
     header('location: ' . BASE_URL . 'admin/usuario/user.php'); 

@@ -59,7 +59,7 @@ $users = selectAll('usuarios', []);
                                     <td><?php echo $user['cpf']; ?></td>
                                     <td><?php echo $user['telefone']; ?></td>
                                     <td><button type="button" class="btn btn-warning btn-sm px-3" style="margin:2px">
-                                    <a style="color:black;" href="edit.php" name="update-user" class="user-control.php"><i class="fa fa-edit"></i></td>
+                                    <a style="color:black;" href="edit-user.php?id=<?php echo $user['id'];?>"><i class="fa fa-edit"></i></td>
                                     <td><button type="button" class="btn btn-dark btn-sm px-3">
                                     <a  style="color:white;" href=<?php echo "user-control.php?del_id=". $user['id'];?>><i class="fa fa-trash"></i></td>
                                     </button>

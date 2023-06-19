@@ -18,7 +18,7 @@
           <div class="dropdown-content">
             <a href="<?php echo BASE_URL . '/admin/usuario/user.php' ?>">Usuários</a>
             <a href="<?php echo BASE_URL . '/admin/cardapio/cardapio.php' ?>">Cardápio</a>
-            <a href="">Promoções</a>
+            <a href="<?php echo BASE_URL . '/admin/promocoes/promocoes.php' ?>">Promoções</a>
           </div>
         </li>
         <li><a href="<?php echo BASE_URL . '/logout.php' ?>">SAIR</a></li>
