@@ -2,36 +2,36 @@
 include("../../path.php");
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
-$table = 'itens';
+
+$table = 'desconto';
 
 $errors = array();
 $oid = '';
-$nome = '';
-$senha = '';
-$senhaConf = '';
-$email = '';
-$cpf = '';
-$telefone = '';
+$item = '';
+$valor = '';
 
 
 if (isset($_POST['create-promo'])) {
 
-    if (count($errors) === 0) {
+
+    if (count($errors) == 0) {
 
         unset($_POST['create-promo']);
 
-        $promo_id = create($table, $_POST);
+        $post_id = create($table, $_POST);
 
-        $_SESSION['type'] = 'success';
-        
-        header('Location:' . "promocoes.php");
+        $_SESSION['message'] = "Item criado com sucesso";
+        $_SESSION['type'] = "success";
 
+        header("location: " . BASE_URL . "/admin/promocoes/promocoes.php"); 
+        exit();    
     } else {
-
-        $_SESSION['message'] = 'Não foi possível criar o usuário';
-
-        $_SESSION['type'] = 'error';
+        $title = $_POST['title'];
+        $body = $_POST['body'];
+        $topic_id = $_POST['topic_id'];
+        $published = isset($_POST['published']) ? 1 : 0;
     }
+
 }
 
 if (isset($_POST['update-user'])) {
@@ -68,10 +68,10 @@ if (isset($_POST['update-user'])) {
 
 
 if (isset($_GET['del_id'])) {
-    $count = delete();
-    $_SESSION['message'] = 'Administrador deletado';
+    $count = delete($table, $_GET['del_id']);
+    $_SESSION['message'] = 'Item deletado com sucesso';
     $_SESSION['type'] = 'success';
-    header('location: ' . BASE_URL . 'admin/usuario/user.php'); 
+    header('location: ' . BASE_URL .  "/admin/promocoes/promocoes.php"); 
     exit();
 }
 
@@ -103,4 +103,3 @@ function validateUser($user)
 
     return $errors;
 }
-

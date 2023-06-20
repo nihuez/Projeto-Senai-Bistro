@@ -34,25 +34,29 @@ include('promo-control.php');
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Adicionar Promoção</h1></div>
                    <!-- Formulário -->
                    <div class="center-form">
+                   <form action="promo-control.php" method="POST" enctype="multipart/form-data">
                     <!--Criar um select de itens- puxar o nome do item-->
-                    <div>
-                        <label>itens-</label>
-                        <select type="text" name="itens" placeholder="Selecione o item" value="<?php echo $periodo ?>" class="text-input">
-                            <option value="0">Selecione o item--</option>
-                            <option value="Valor">Valor</option>
-                            <option value="Descricao">Descricao</option>
+                    <div class="form-group">
+                   
+                        <label for="itens">Itens :</label>
+                        <select class="form-control" id="itens" name="item">
+                        <option  value="" selected disabled style="display: none;">Selecione o Item...</option>
+                        <?php $query = $conn->query("SELECT * FROM itens");
+                                while ($itens = $query->fetch_object()) {
+                                    ?>
+                                    <option value="<?php echo $itens->nome; ?>"
+                                    ><?php echo $itens->nome; ?></option>
+                                    <?php
+                                }
+                                ?>
                         <select>
                     </div>
-                   <form action="index.php" method="POST">
+           
                     <div class="form-group">
-                      <label for="nome">Nome</label>
-                      <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome da promoção">
+                      <label for="valor">Valor:</label>
+                      <input type="text" class="form-control" id="valor" name="valor" placeholder="Digite o Valor...">
                     </div>
-                    <div class="form-group">
-                      <label for="valor">Valor</label>
-                      <input type="text" class="form-control" id="valor" name="valor" placeholder="Digite o valor">
-                    </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" name="create-promo"> <a style="color: #ffff;">Adicionar</a> </button>
+                    <button type="submit" class="btn mt-4" id="btn-add" name="create-promo">Cadastrar</button>
                     </form>
                   </div>
                 </div>
@@ -68,5 +72,6 @@ include('promo-control.php');
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>
 
