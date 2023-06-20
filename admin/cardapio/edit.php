@@ -33,10 +33,11 @@ include('cardapio-control.php');
                   <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cadastro de Itens</h1></div>
                    <!-- Formulário -->
                    <div class="center-form">
-                   <form action="novo-item.php" method="POST" enctype="multipart/form-data">
+                   <form action="edit.php" method="POST" enctype="multipart/form-data"> 
+                    <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
                     <div class="form-group">
-                      <label for="nome">Nome:</label>
-                      <input type="text" class="form-control" id="nome" value="<?php echo $item['nome']?>" name="nome" placeholder="Digite o Nome...">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" id="nome" value="<?php echo $item['nome']?>" name="nome" placeholder="Digite o Nome...">
                     </div>
                     <div class="form-group">
                       <label for="categoria">Categoria:</label>

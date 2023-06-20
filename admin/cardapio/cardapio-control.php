@@ -66,8 +66,10 @@ if (isset($_POST['update-item'])) {
     if (count($errors) == 0) {
 
         $id = $_POST['id'];
+        
         unset($_POST['update-item'], $_POST['id']);
         $item_id = update($table, $id, $_POST);
+
         $_SESSION['message'] = "Item atualizado com sucesso";
         $_SESSION['type'] = "success";
         header("location: " . BASE_URL . "/admin/cardapio/cardapio.php");    
@@ -79,6 +81,11 @@ if (isset($_POST['update-item'])) {
 
     if (isset($_GET['id'])) {
     $item = selectOne($table, ['id' => $_GET['id']]);
+    $item = selectOne($table, ['id' => $_GET['id']]);
+
+    $id = $user['id'];
+
+     $item = selectOne($table, ['id' => $_GET['id']]);
 
     $id = $user['id'];
 
