@@ -3,6 +3,7 @@
 
 include(ROOT_PATH . "/banco-de-dados/consultas.php");
 
+
 $table = 'reservas';
 
 $errors = array();

@@ -1,8 +1,6 @@
 
 <?php 
 
-include(ROOT_PATH . "/banco-de-dados/consultas.php");
-
 $massas = selectAll("itens", ['categoria' => 'massas'] );
 $pizzas = selectAll("itens", ['categoria' => 'pizzas']);
 $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
