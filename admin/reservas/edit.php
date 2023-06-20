@@ -50,7 +50,7 @@
 
                     <label for="acompanhantes">Acompanhantes:</label>
                     <select class="form-control nice-select wide" id="acompanhantes" name="acompanhantes" required>
-                    <option value="" disabled selected>
+                    <option value="<?php echo $reserva['acompanhantes'] ?>" disabled selected>
                     <?php echo $reserva['acompanhantes'] ?>
                     </option>
                     <option value="0">
@@ -71,7 +71,7 @@
 
                     <label for="mesa">Escolha a Mesa:</label>
                     <select class="form-control" id="mesa" name="mesa"required>
-                    <option value="" disabled selected>
+                    <option value="<?php echo $reserva['mesa'] ?>" disabled selected>
                     <?php echo $reserva['mesa'] ?>
                     </option>
                     <option value="25">

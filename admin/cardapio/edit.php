@@ -42,7 +42,7 @@ include('cardapio-control.php');
                     <div class="form-group">
                     <label for="categoria">Categoria:</label>
                       <select class="form-control" id="categoria" name="categoria">
-                        <option  value="" selected disabled style="display: none;"><? echo $item['categoria'] ?></option>
+                        <option  value="<? echo $item['categoria'] ?>" selected disabled style="display: none;"><? echo $item['categoria'] ?></option>
                         <option  value="massas">Massa</option>
                         <option  value="lasanhas" >Lasanha</option>
                         <option  value="pizzas" >Pizza</option>
