@@ -30,7 +30,7 @@ include('cardapio-control.php');
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-borderless mb-3"> 
-                  <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Cadastro de Itens</h1></div>
+                  <div class="texto" style="font-family: 'Dancing Script', cursive; font-size:100px"><h1>Atualizar Item</h1></div>
                    <!-- Formulário -->
                    <div class="center-form">
                    <form action="edit.php" method="POST" enctype="multipart/form-data"> 
@@ -55,7 +55,7 @@ include('cardapio-control.php');
                       <label for="descricao">Descrição:</label>
                       <textarea type="text" class="form-control"  id="descricao" rows="6" name="descricao" placeholder="Digite a Descrição..."><?php echo $item['descricao']?></textarea>
                     </div>
-                    <button type="submit" class="btn mt-4" id="btn-add" name="update-item">Cadastrar</button>
+                    <button type="submit" class="btn mt-4" id="btn-add" name="update-item">Atualizar</button>
                     </form>
                   </div>
                 </div>
