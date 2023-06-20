@@ -40,8 +40,13 @@ include('cardapio-control.php');
                     <input type="text" class="form-control" id="nome" value="<?php echo $item['nome']?>" name="nome" placeholder="Digite o Nome...">
                     </div>
                     <div class="form-group">
-                      <label for="categoria">Categoria:</label>
-                      <input type="text" class="form-control" id="categoria" name="categoria"  value="<?php echo $item['categoria']?>" readonly>
+                    <label for="categoria">Categoria:</label>
+                      <select class="form-control" id="categoria" name="categoria">
+                        <option  value="" selected disabled style="display: none;"><? echo $item['categoria'] ?></option>
+                        <option  value="massas">Massa</option>
+                        <option  value="lasanhas" >Lasanha</option>
+                        <option  value="pizzas" >Pizza</option>
+                      </select>
                     </div>
                     <div class="form-group">
                       <label for="valor">Valor:</label>

@@ -49,14 +49,44 @@
                     </div>
 
                     <label for="acompanhantes">Acompanhantes:</label>
-                    <input type="text" id="acomapanhantes" value="<?php echo $reserva['acompanhantes'] ?>" name="acompanhantes" class="text-input">
+                    <select class="form-control nice-select wide" id="acompanhantes" name="acompanhantes" required>
                     <option value="" disabled selected>
+                    <?php echo $reserva['acompanhantes'] ?>
                     </option>
+                    <option value="0">
+                      0
+                    <option value="1">
+                      1
+                    </option>
+                    <option value="2">
+                      2
+                    </option>
+                    <option value="3">
+                      3
+                    </option>
+                    <option value="5">
+                      4
+                    </option>
+                    </select>
 
-                    </select>
                     <label for="mesa">Escolha a Mesa:</label>
-                    <input type="text" id="mesa" value="<?php echo $reserva['mesa'] ?>" name="mesa" class="text-input">
-                    </select>
+                    <select class="form-control" id="mesa" name="mesa"required>
+                    <option value="" disabled selected>
+                    <?php echo $reserva['mesa'] ?>
+                    </option>
+                    <option value="25">
+                      25
+                    </option>
+                    <option value="34">
+                      34
+                    </option>
+                    <option value="43">
+                      43
+                    </option>
+                    <option value="59">
+                      59
+                    </option>
+                  </select>
 
                     <div>
                       <label for="data_reserva">Data:</label>

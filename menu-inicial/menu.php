@@ -43,7 +43,7 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
                    <?php echo $pizza['nome']; ?>
                   </h5>
                   <p>
-                  <?php echo substr($pizza['descricao'], 0, 100); ?>
+                  <?php echo substr($pizza['descricao'], 0, 200); ?>
                   </p>
                   <div class="options">
                     <h6>
@@ -69,7 +69,7 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
                    <?php echo $massa['nome']; ?>
                   </h5>
                   <p>
-                  <?php echo substr($massa['descricao'], 0, 100); ;?>
+                  <?php echo substr($massa['descricao'], 0, 200); ;?>
                   </p>
                   <div class="options">
                     <h6>
@@ -97,7 +97,7 @@ $lasanhas = selectAll("itens", ['categoria' => 'lasanhas']);
                    <?php echo $lasanha['nome']; ?>
                   </h5>
                   <p>
-                  <?php echo substr($lasanha['descricao'], 0, 100); ?>
+                  <?php echo substr($lasanha['descricao'], 0, 200); ?>
                   </p>
                   <div class="options">
                     <h6>
