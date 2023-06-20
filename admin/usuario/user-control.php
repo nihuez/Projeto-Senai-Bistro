@@ -45,7 +45,7 @@ if (isset($_POST['update-user'])) {
         $topic_oid = update($table, $oid, $_POST); 
         $_SESSION['message'] = 'cadastro atualizado com sucesso';
         $_SESSION['type'] = 'success';
-        header('location: ' . BASE_URL . '/usuario/user.php');
+        header('location: ' . BASE_URL . '/admin/usuario/user.php');
         exit();
     } else {
         $_SESSION['message'] = 'Não foi possível atualizar user';

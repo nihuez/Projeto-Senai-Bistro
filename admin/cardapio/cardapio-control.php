@@ -48,37 +48,48 @@ if (isset($_POST['create-item'])) {
 
 }
 
-if (isset($_POST['update-user'])) {
+if (isset($_POST['update-item'])) {
 
-    $errors = validateUser($_POST);
+    if (!empty($_FILES['img']['name'])) {
 
-    if (count($errors) === 0) {
-        $oid = $_POST['id'];
-        unset($_POST['senhaConf'], $_POST['update-user'], $_POST['id']);
-        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $count = update($table, $oid, $_POST);
-        $_SESSION['message'] = 'Administrador criado';
-        $_SESSION['type'] = 'success';
-        header('location: ' . BASE_URL . '/index.php'); 
-        exit();
+        $image_name = time() . '_' . $_FILES['img']['name'];
+        $destination = ROOT_PATH . "/assets/images/" . $image_name;
+
+        $result = move_uploaded_file($_FILES['img']['tmp_name'], $destination);
+
+        if ($result) {
+           $_POST['img'] = $image_name;
+        }
+
+    } 
+
+    if (count($errors) == 0) {
+
+        $id = $_POST['id'];
         
-    } else {
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $senhaConf = $_POST['senhaConf'];
-    }
-    }
+        unset($_POST['update-item'], $_POST['id']);
+        $item_id = update($table, $id, $_POST);
+
+        $_SESSION['message'] = "Item atualizado com sucesso";
+        $_SESSION['type'] = "success";
+        header("location: " . BASE_URL . "/admin/cardapio/cardapio.php");    
+        exit(); 
+
+    } 
+}
 
 
     if (isset($_GET['id'])) {
-    $user = selectOne($table, ['id' => $_GET['id']]);
+    $item = selectOne($table, ['id' => $_GET['id']]);
+    $item = selectOne($table, ['id' => $_GET['id']]);
 
-    $oid = $user['id'];
-    $nome = $user['nome'];
-    $email = $user['email'];
+    $id = $user['id'];
 
-}
+     $item = selectOne($table, ['id' => $_GET['id']]);
+
+    $id = $user['id'];
+
+    }
 
 
 if (isset($_GET['del_id'])) {

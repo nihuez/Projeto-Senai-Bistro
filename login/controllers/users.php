@@ -17,12 +17,12 @@ $telefone = '';
 
 function loginUser($user)
 {
-    $_SESSION['oid'] = $user['oid'];
+    $_SESSION['id'] = $user['id'];
     $_SESSION['nome'] = $user['nome'];
     $_SESSION['message'] = 'Você esta logado!';
     $_SESSION['type'] = 'success';
 
-    if ($_SESSION['oid']) {
+    if ($_SESSION['id']) {
         header('location: ' . BASE_URL . 'login/login.php'); 
     } 
 
@@ -37,7 +37,7 @@ if (isset($_POST['register-btn']) || isset($_POST['create-admin'])) {
         $_POST['senha'] = password_hash($_POST['senha'], PASSWORD_DEFAULT);
         
         $user_id = create($table, $_POST);
-        $user = selectOne($table, ['oid' => $user_id]);
+        $user = selectOne($table, ['id' => $user_id]);
         loginUser($user);
       
     } else {
@@ -49,32 +49,25 @@ if (isset($_POST['register-btn']) || isset($_POST['create-admin'])) {
 }
 
 if (isset($_POST['update-user'])) {
-
-    $errors = validateUser($_POST);
-
-    if (count($errors) === 0) {
-        $oid = $_POST['oid'];
-        unset($_POST['passwordConf'], $_POST['update-user'], $_POST['oid']);
-        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $count = update($table, $oid, $_POST);
-        $_SESSION['message'] = 'Administrador criado';
-        $_SESSION['type'] = 'success';
-        header('location: ' . BASE_URL . '/index.php'); 
-        exit();
-        
-    } else {
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $senhaConf = $_POST['senhaConf'];
-    }
-}
-
-
-if (isset($_GET['oid'])) {
-    $user = selectOne($table, ['oid' => $_GET['oid']]);
     
-    $oid = $user['oid'];
+    if (count($errors) === 0) { 
+        $id = $_POST['id']; 
+        unset($_POST['update-user'], $_POST['id']);
+        $topic_id = update($table, $id, $_POST); 
+        $_SESSION['message'] = 'user atualizada com sucesso';
+        $_SESSION['type'] = 'success';
+        header('location: ' . BASE_URL . '/admin/usuario/user.php');
+        exit();
+    } else {
+        $_SESSION['message'] = 'Não foi possível criar a reserva';
+        $_SESSION['type'] = 'error';
+    }
+} 
+
+if (isset($_GET['id'])) {
+    $user = selectOne($table, ['id' => $_GET['id']]);
+    
+    $oid = $user['id'];
     $nome = $user['nome'];
     $email = $user['email'];
 
